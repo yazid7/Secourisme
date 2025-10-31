@@ -1,249 +1,711 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>دليل الإسعافات الأولية وطفايات الحريق</title>
-  <style>
-    :root{--bg:#f7f7fb;--card:#fff;--accent:#d9534f;--text:#222}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,'Noto Sans Arabic',sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-    header{background:linear-gradient(90deg,#fff 0%,#f3f3f8 100%);padding:18px 20px;border-bottom:1px solid #e6e6ee;display:flex;gap:12px;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:white;font-weight:700}
-    nav{display:flex;gap:10px}
-    nav a{padding:8px 12px;background:transparent;border-radius:8px;text-decoration:none;color:var(--text);font-weight:600}
-    nav a:hover{background:#efeff6}.container{max-width:1100px;margin:26px auto;padding:0 18px}
-.grid{display:grid;grid-template-columns:1fr 340px;gap:18px}
-.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(35,35,77,0.06)}
-
-h1{margin:0;font-size:20px}
-.intro p{margin:10px 0 0}
-
-.section{margin-bottom:14px}
-.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.item{display:flex;flex-direction:column;border-radius:10px;overflow:hidden}
-.item img{width:100%;height:160px;object-fit:cover;display:block}
-.item .content{padding:12px}
-.item h3{margin:0 0 8px;font-size:16px}
-.item p{margin:0;font-size:14px;color:#444}
-
-aside .card{position:sticky;top:20px}
-.search input{width:100%;padding:10px;border-radius:8px;border:1px solid #e8e8f0}
-.btn{display:inline-block;padding:8px 12px;border-radius:8px;border:none;background:var(--accent);color:white;font-weight:700;cursor:pointer}
-
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px}
-.modal .frame{background:white;border-radius:10px;max-width:900px;width:100%;max-height:90vh;overflow:auto}
-.modal img{width:100%;height:auto;border-radius:10px}
-
-footer{padding:18px;text-align:center;color:#666;font-size:14px}
-
-/* checklist & print */
-.checklist ul{list-style:none;padding:0;margin:0}
-.checklist li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #f0f0f0}
-.checklist input[type=checkbox]{width:18px;height:18px}
-
-/* responsive */
-@media(max-width:900px){.grid{grid-template-columns:1fr}.logo{width:48px;height:48px}}
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإسعافات الأولية والسلامة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #dc3545;
+            --secondary-color: #198754;
+            --dark-color: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x600') center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-right: 5px solid var(--primary-color);
+            padding-right: 15px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .first-aid-kit-item {
+            border-right: 3px solid var(--secondary-color);
+            padding-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .procedure-step {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-right: 4px solid var(--primary-color);
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-right: 5px solid #fdcb6e;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <div class="logo">ط</div>
-      <div>
-        <h1>دليل الإسعافات الأولية وطفايات الحريق</h1>
-        <div style="font-size:12px;color:#666">موقع تعليمي عملي — شامل صور وخطوات سريعة</div>
-      </div>
-    </div>
-    <nav>
-      <a href="#firstaid">الإسعافات</a>
-      <a href="#extinguishers">طفايات الحريق</a>
-      <a href="#checklist">قائمة فحص</a>
-      <a href="#contact">اتصل بنا</a>
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-heart-pulse"></i> الإسعافات الأولية
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">الرئيسية</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="firstAidDropdown" role="button" data-bs-toggle="dropdown">
+                            الإسعافات الأولية
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#cpr">إنعاش قلبي رئوي</a></li>
+                            <li><a class="dropdown-item" href="#bleeding">النزيف والجروح</a></li>
+                            <li><a class="dropdown-item" href="#fractures">الكسور</a></li>
+                            <li><a class="dropdown-item" href="#burns">الحروق</a></li>
+                            <li><a class="dropdown-item" href="#first-aid-kit">علبة الإسعافات</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="safetyDropdown" role="button" data-bs-toggle="dropdown">
+                            السلامة
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#fire-extinguishers">أنواع طفايات الحريق</a></li>
+                            <li><a class="dropdown-item" href="#evacuation">إجراءات الإجلاء</a></li>
+                            <li><a class="dropdown-item" href="#fire-types">أنواع الحرائق</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#emergency-contacts">اتصال الطوارئ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-  </header>  <main class="container">
-    <div class="grid">
-      <section>
-        <div class="card intro section" id="firstaid">
-          <h2>الإسعافات الأولية — خطوات عامة</h2>
-          <p>النقاط التالية موجزة وسريعة للتعامل مع حالات شائعة. إن كانت الحالة خطيرة اتصل بالإسعاف فورًا.</p>
-          <div style="margin-top:12px">
-            <div class="items">
-              <article class="item">
-                <img src="https://images.unsplash.com/photo-1582719478178-8f7b1b0d4e8b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="إسعاف جرح">
-                <div class="content">
-                  <h3>نزيف خارجي</h3>
-                  <p>اضغط بقوة على الجرح بقطعة قماش نظيفة لوقف النزيف، ارفع الطرف المصاب فوق مستوى القلب إن أمكن، وتوجه للمستشفى إذا استمر النزف.</p>
-                  <button class="btn" data-img="https://images.unsplash.com/photo-1582719478178-8f7b1b0d4e8b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1">عرض صورة</button>
+
+    <!-- قسم الهيرو -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">الإسعافات الأولية والسلامة</h1>
+            <p class="lead">موقع شامل للإسعافات الأولية وإجراءات السلامة - معرفة تنقذ حياة</p>
+            <button class="btn btn-danger btn-lg mt-3" onclick="scrollToSection('first-aid-kit')">
+                ابدأ الرحلة <i class="bi bi-arrow-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- المحتويات الرئيسية -->
+    <div class="container my-5">
+        <!-- قسم علبة الإسعافات الأولية -->
+        <section id="first-aid-kit" class="my-5">
+            <h2 class="section-title">علبة الإسعافات الأولية</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-bag-plus"></i> محتويات علبة الإسعافات الأساسية</h5>
+                            <div class="first-aid-kit-item">
+                                <strong>المواد الأساسية:</strong>
+                                <ul>
+                                    <li>ضمادات معقمة بمختلف الأحجام</li>
+                                    <li>شاش طبي معقم</li>
+                                    <li>لاصق طبي</li>
+                                    <li>مقص طبي</li>
+                                    <li>ملاقط طبية</li>
+                                    <li>قفازات طبية معقمة (10 أزواج على الأقل)</li>
+                                    <li>مطهر طبي (بيتادين أو كحول)</li>
+                                    <li>ميزان حرارة</li>
+                                    <li>مصباح يدوي صغير</li>
+                                </ul>
+                            </div>
+                            <div class="first-aid-kit-item">
+                                <strong>الأدوية الأساسية:</strong>
+                                <ul>
+                                    <li>مسكنات الألم (باراسيتامول، إيبوبروفين)</li>
+                                    <li>مرهم للحروق</li>
+                                    <li>كريم مضاد حيوي</li>
+                                    <li>أدوية مضادة للحساسية</li>
+                                    <li>محلول معالجة الجفاف</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </article><article class="item">
-            <img src="https://images.unsplash.com/photo-1582719478256-0bb7b8b1a45a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="إنعاش قلبي">
-            <div class="content">
-              <h3>إيقاف التنفس / فقدان الوعي</h3>
-              <p>تحقق من الوعي والتنفس، إذا لا يتنفس ابدأ بالإسعاف القلبي الرئوي (CPR) 30 ضغطات ثم 2 نفخات، واطلب المساعدة فورًا.</p>
-              <button class="btn" data-img="https://images.unsplash.com/photo-1582719478256-0bb7b8b1a45a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2">عرض صورة</button>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-lightbulb"></i> نصائح هامة</h5>
+                            <div class="warning-box">
+                                <i class="bi bi-exclamation-triangle"></i>
+                                <strong>تأكد من:</strong>
+                                <ul>
+                                    <li>وضع العلبة في مكان معروف للجميع وبعيد عن متناول الأطفال</li>
+                                    <li>فحص العلبة بانتظام وتجديد المواد المنتهية الصلاحية</li>
+                                    <li>وجود دليل إسعافات أولية مع العلبة</li>
+                                    <li>تضمين قائمة بأرقام الطوارئ في العلبة</li>
+                                </ul>
+                            </div>
+                            <img src="https://via.placeholder.com/500x300" alt="علبة الإسعافات الأولية" class="img-fluid rounded mt-3">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </article>
+        </section>
 
-          <article class="item">
-            <img src="https://images.unsplash.com/photo-1518241353330-3b3b0f6f6f1b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="حروق">
-            <div class="content">
-              <h3>حروق</h3>
-              <p>برد الحرق تحت ماء جاري لمدة 10-20 دقيقة، لا تضع معاجين أو زبدة، غطِّي بضمادة معقمة واطلب رعاية طبية إذا كان الحرق واسعًا أو عميقًا.</p>
-              <button class="btn" data-img="https://images.unsplash.com/photo-1518241353330-3b3b0f6f6f1b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3">عرض صورة</button>
+        <!-- قسم الإنعاش القلبي الرئوي -->
+        <section id="cpr" class="my-5">
+            <h2 class="section-title">الإنعاش القلبي الرئوي (CPR)</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="procedure-step">
+                        <h5>الخطوة 1: التحقق من السلامة والاستجابة</h5>
+                        <p>تأكد من أنك والمصاب في مكان آمن. هز كتف المصاب وناده بصوت عالٍ: "هل تسمعني؟" [citation:4][citation:6]</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5>الخطوة 2: طلب المساعدة</h5>
+                        <p>إذا لم يستجب المصاب، اطلب من شخص آخر الاتصال بالإسعاف (رقم 911 أو 997 في السعودية). إذا كنت بمفردك، اتصل بالإسعاف أولاً ثم ابدأ الإنعاش [citation:6].</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5>الخطوة 3: فتح المجاري التنفسية والتحقق من التنفس</h5>
+                        <p>افتح مجرى الهواء بإمالة الرأس ورفع الذقن. تحقق من التنفس بالنظر والاستماع والإحساس لمدة لا تزيد عن 10 ثوانٍ [citation:4].</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5>الخطوة 4: بدء الضغطات الصدرية</h5>
+                        <p>إذا كان المصاب لا يتنفس، ابدأ بالضغطات الصدرية:
+                        <ul>
+                            <li>ضع راحة يدك على منتصف الصدر (عظمة القص)</li>
+                            <li>اضغط بعمق 5-6 سم بمعدل 100-120 ضغطة في الدقيقة</li>
+                            <li>اترك الصدر يرتفع completamente بين الضغطات [citation:4][citation:6]</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5>الخطوة 5: التنفس الصناعي</h5>
+                        <p>بعد 30 ضغطة، أعطِ تنفسين صناعيين:
+                        <ul>
+                            <li>أغلق أنف المصاب وافتح فمه</li>
+                            <li>انفخ في فمه حتى يرتفع الصدر</li>
+                            <li>استمر في دورة 30 ضغطة: تنفسين [citation:4]</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">معلومات هامة</h5>
+                            <div class="warning-box">
+                                <i class="bi bi-exclamation-triangle"></i>
+                                <strong>تذكر:</strong>
+                                <ul>
+                                    <li>خلايا الدماغ تبدأ بالموت بعد 4-6 دقائق من توقف القلب [citation:6]</li>
+                                    <li>لا تتوقف عن الإنعاش حتى وصول المساعدة الطبية</li>
+                                    <li>الإنعاش القلبي الرئوي يضاعف فرص البقاء على قيد الحياة</li>
+                                </ul>
+                            </div>
+                            <img src="https://via.placeholder.com/300x200" alt="طريقة الإنعاش القلبي الرئوي" class="img-fluid rounded mt-3">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </article>
+        </section>
 
+        <!-- قسم النزيف والجروح -->
+        <section id="bleeding" class="my-5">
+            <h2 class="section-title">النزيف والجروح</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">إسعاف النزيف الخارجي</h5>
+                            <ol>
+                                <li>ارتد قفازات واقية إن أمكن</li>
+                                <li>اضغط مباشرة على الجرح بضمادة معقمة أو قطعة قماش نظيفة</li>
+                                <li>ارفع العضو المصاب فوق مستوى القلب إن أمكن</li>
+                                <li>استمر في الضغط حتى توقف النزيف</li>
+                                <li>لا تزيل الضمادة الأولى إذا تشبعت بالدم، أضف أخرى فوقها</li>
+                                <li>اطلب المساعدة الطبية إذا كان النزيف شديداً</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">إسعاف الجروح البسيطة</h5>
+                            <ol>
+                                <li>اغسل يديك جيداً</li>
+                                <li>نظف الجرح بالماء النظيف والصابون</li>
+                                <li>طبق مطهراً طبياً</li>
+                                <li>غطِ الجرح بضمادة معقمة</li>
+                                <li>غير الضمادة يومياً أو عندما تبتل</li>
+                                <li>راجع الطبيب إذا ظهرت علامات العدوى (احمرار، تورم، صديد)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الكسور -->
+        <section id="fractures" class="my-5">
+            <h2 class="section-title">كسور العظام</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">أنواع الكسور</h5>
+                            <ul>
+                                <li><strong>الكسر المغلق:</strong> كسر العظم دون تهتك في الجلد [citation:2]</li>
+                                <li><strong>الكسر المفتوح (المركب):</strong> كسر يصاحبه جرح في الجلد [citation:2][citation:8]</li>
+                                <li><strong>الكسر الكامل:</strong> انفصال العظم المكسور إلى جزئين منفصلين [citation:8]</li>
+                                <li><strong>الكسر غير الكامل:</strong> تشقق العظم دون انفصاله completely [citation:8]</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">الإسعافات الأولية للكسور</h5>
+                            <ol>
+                                <li>إيقاف النزيف إن وجد بالضغط المباشر [citation:2]</li>
+                                <li>عدم تحريك المنطقة المصابة أبداً [citation:2]</li>
+                                <li>تبريد المنطقة المصابة بمكعبات ثلج مغطاة بقماش نظيف [citation:2]</li>
+                                <li>تثبيت العضو المكسور بوضعه في جبيرة [citation:8]</li>
+                                <li>طلب المساعدة الطبية فوراً [citation:2][citation:8]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning-box mt-4">
+                <i class="bi bi-exclamation-triangle"></i>
+                <strong>تحذير هام:</strong> لا تحاول إعادة العظم المكسور إلى مكانه أو تصحيح انحنائه. قد يتسبب ذلك في إصابات إضافية [citation:2].
+            </div>
+        </section>
+
+        <!-- قسم الحروق -->
+        <section id="burns" class="my-5">
+            <h2 class="section-title">الحروق</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">حروق الدرجة الأولى</h5>
+                            <p>تؤثر على الطبقة الخارجية من الجلد:</p>
+                            <ul>
+                                <li>احمرار الجلد</li>
+                                <li>ألم بسيط</li>
+                                <li>تورم طفيف</li>
+                            </ul>
+                            <p><strong>الإسعاف:</strong> تبريد المنطقة بماء الصنبور (ليس مثلج) لمدة 10-15 دقيقة</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">حروق الدرجة الثانية</h5>
+                            <p>تؤثر على الطبقتين الخارجية والداخلية من الجلد:</p>
+                            <ul>
+                                <li>بثور واحمرار</li>
+                                <li>ألم شديد</li>
+                                <li>تورم واضح</li>
+                            </ul>
+                            <p><strong>الإسعاف:</strong> تبريد المنطقة، تغطيتها بضمادة غير لاصقة معقمة، طلب العناية الطبية</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">حروق الدرجة الثالثة</h5>
+                            <p>تدمير كامل لسمك الجلد:</p>
+                            <ul>
+                                <li>مظهر أبيض أو أسود متفحم</li>
+                                <li>فقدان الإحساس (تلف النهايات العصبية)</li>
+                                <li>جفاف الجلد</li>
+                            </ul>
+                            <p><strong>الإسعاف:</strong> طلب الطوارئ فوراً، تغطية المنطقة بقطعة قماش نظيفة وجافة، مراقبة العلامات الحيوية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning-box mt-4">
+                <i class="bi bi-exclamation-triangle"></i>
+                <strong>ممنوعات إسعاف الحروق:</strong> لا تضع الثلج مباشرة على الحرق، لا تفتح البثور، لا تضع الزبدة أو المعجون على الحرق، لا تنتزع الملابس الملتصقة بالحرق.
+            </div>
+        </section>
+
+        <!-- قسم أنواع طفايات الحريق -->
+        <section id="fire-extinguishers" class="my-5">
+            <h2 class="section-title">أنواع طفايات الحريق واستخدامها</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>نوع الحريق</th>
+                                    <th>المواد المشتعلة</th>
+                                    <th>نوع الطفاية المناسبة</th>
+                                    <th>طريقة الاستخدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>النوع A</td>
+                                    <td>المواد الصلبة (خشب، ورق، قماش، مطاط) [citation:1][citation:5]</td>
+                                    <td>الماء، الرغوة [citation:1][citation:5]</td>
+                                    <td>توجيه القاذف إلى قاعدة اللهب وتحريكه يميناً ويساراً</td>
+                                </tr>
+                                <tr>
+                                    <td>النوع B</td>
+                                    <td>السوائل القابلة للاشتعال (بنزين، كحول، زيوت، دهانات) [citation:1][citation:7]</td>
+                                    <td>ثاني أكسيد الكربون، البودرة الجافة، الرغوة [citation:1][citation:5]</td>
+                                    <td>توجيه القاذف إلى قاعدة اللهب مع الحرص على عدم تناثر السائل</td>
+                                </tr>
+                                <tr>
+                                    <td>النوع C</td>
+                                    <td>الحرائق الكهربائية (معدات وأجهزة كهربائية) [citation:5]</td>
+                                    <td>ثاني أكسيد الكربون، البودرة الجافة [citation:1][citation:5]</td>
+                                    <td>قطع التيار الكهربائي أولاً ثم توجيه القاذف إلى مصدر الحريق</td>
+                                </tr>
+                                <tr>
+                                    <td>النوع D</td>
+                                    <td>المعادن القابلة للاشتعال (مغنيسيوم، صوديوم، ألومنيوم) [citation:1][citation:5]</td>
+                                    <td>البودرة الجافة الخاصة [citation:1][citation:5]</td>
+                                    <td>تغطية المعدن المحترق بمسحوق خاص لخنق الحريق</td>
+                                </tr>
+                                <tr>
+                                    <td>النوع K</td>
+                                    <td>زيوت ودهون الطهي [citation:1][citation:5]</td>
+                                    <td>المواد الكيميائية الرطبة [citation:1][citation:5]</td>
+                                    <td>توجيه القاذف بحذر لتجنب تناثر الزيت الحار</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">طريقة استخدام طفاية الحريق (PASS)</h5>
+                            <ol>
+                                <li><strong>P</strong>ull - سحب مسمار الأمان</li>
+                                <li><strong>A</strong>im - توجيه الخرطوم إلى قاعدة النار</li>
+                                <li><strong>S</strong>queeze - ضغط المقبض لتحرير المادة الإطفائية</li>
+                                <li><strong>S</strong>weep - تحريك الخرطوم يميناً ويساراً على قاعدة النار</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">إجراءات السلامة عند استخدام الطفاية</h5>
+                            <ul>
+                                <li>تأكد من أن الحريق صغير ويمكن السيطرة عليه</li>
+                                <li>ضع مخرجاً خلفك للهروب إذا لزم الأمر</li>
+                                <li>لا تدير ظهرك للحريق</li>
+                                <li>اتصل بالإطفاء حتى لو نجحت في إخماد الحريق</li>
+                                <li>اطلب المساعدة المتخصصة للحرائق الكبيرة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم إجراءات الإجلاء -->
+        <section id="evacuation" class="my-5">
+            <h2 class="section-title">إجراءات الإجلاء في حالات الطوارئ</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">خطوات الإجلاء الآمن</h5>
+                            <ol>
+                                <li>حافظ على الهدوء ولا تهرع</li>
+                                <li>أوقف المعدات إن أمكن</li>
+                                <li>اتبع مسارات الإخلاء المحددة</li>
+                                <li>لا تستخدم المصاعد أثناء الحريق</li>
+                                <li>اغلق الأبواب خلفك لإبطاء انتشار الحريق</li>
+                                <li>توجه إلى نقطة التجمع المحددة</li>
+                                <li>لا تعد إلى المبنى حتى يتم الإعلان عن ذلك</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">التخطيط المسبق للإجلاء</h5>
+                            <ul>
+                                <li>تعرف على مخارج الطوارئ الأقرب لمكانك</li>
+                                <li>حدد نقطة تجمع آمنة خارج المبنى</li>
+                                <li>تأكد من أن مسارات الإخلاء خالية من العوائق</li>
+                                <li>شارك في تدريبات الإخلاء الدورية</li>
+                                <li>حدد مسؤوليات أفراد الأسرة أو الفريق أثناء الطوارئ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم أنواع الحرائق -->
+        <section id="fire-types" class="my-5">
+            <h2 class="section-title">أنواع الحرائق وطرق مكافحتها</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>يتم تصنيف الحرائق إلى عدة أنواع حسب المادة المشتعلة، ويحدد هذا التصنيف طريقة الإطفاء المناسبة [citation:1][citation:5]:</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-danger text-white">
+                                            <h6>حرائق النوع A</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>المواد المشتعلة:</strong> المواد الصلبة القابلة للاشتعال (خشب، ورق، أقمشة، قمامة) [citation:1]</p>
+                                            <p><strong>طريقة الإطفاء:</strong> الماء، الرغوة [citation:1][citation:5]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-warning text-dark">
+                                            <h6>حرائق النوع B</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>المواد المشتعلة:</strong> السوائل القابلة للاشتعال (بنزين، كحول، زيوت، دهانات) [citation:1][citation:7]</p>
+                                            <p><strong>طريقة الإطفاء:</strong> الرغوة، ثاني أكسيد الكربون، البودرة الجافة [citation:1][citation:5]</p>
+                                            <div class="warning-box mt-2">
+                                                <small><strong>تحذير:</strong> لا تستخدم الماء لأنه قد ينشر الحريق [citation:5][citation:7]</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-primary text-white">
+                                            <h6>حرائق النوع C</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>المواد المشتعلة:</strong> المعدات الكهربائية (أسلاك، أجهزة كهربائية) [citation:5]</p>
+                                            <p><strong>طريقة الإطفاء:</strong> ثاني أكسيد الكربون، البودرة الجافة [citation:1][citation:5]</p>
+                                            <div class="warning-box mt-2">
+                                                <small><strong>تحذير:</strong> لا تستخدم الماء لأنه موصل للكهرباء [citation:5]</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-dark text-white">
+                                            <h6>حرائق النوع D</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>المواد المشتعلة:</strong> المعادن القابلة للاشتعال (ماغنسيوم، صوديوم) [citation:1]</p>
+                                            <p><strong>طريقة الإطفاء:</strong> البودرة الجافة الخاصة [citation:1][citation:5]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-success text-white">
+                                            <h6>حرائق النوع K</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>المواد المشتعلة:</strong> زيوت ودهون الطهي [citation:1][citation:5]</p>
+                                            <p><strong>طريقة الإطفاء:</strong> المواد الكيميائية الرطبة [citation:1][citation:5]</p>
+                                            <div class="warning-box mt-2">
+                                                <small><strong>تحذير:</strong> لا تستخدم الماء لأنه يتسبب في تناثر الزيت وانتشار الحريق [citation:5][citation:7]</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم اتصال الطوارئ -->
+        <section id="emergency-contacts" class="my-5">
+            <h2 class="section-title">اتصال الطوارئ</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h3 class="text-danger"><i class="bi bi-telephone-fill"></i> أرقام الطوارئ في السعودية</h3>
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
+                                    <span>الطوارئ الموحدة</span>
+                                    <strong class="text-danger">911</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
+                                    <span>الدفاع المدني</span>
+                                    <strong class="text-danger">998</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
+                                    <span>الشرطة</span>
+                                    <strong class="text-danger">999</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
+                                    <span>الإسعاف</span>
+                                    <strong class="text-danger">997</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-2">
+                                    <span>المرور</span>
+                                    <strong class="text-danger">993</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>معلومات يجب تقديمها عند الاتصال بالطوارئ:</h5>
+                            <ol>
+                                <li>مكان الحادث (عنوان دقيق، معلم بارز)</li>
+                                <li>نوع الحالة (حريق، إصابة، نزيف، إلخ)</li>
+                                <li>عدد المصابين وحالتهم</li>
+                                <li>اسمك ورقم هاتفك</li>
+                                <li>لا تقفل الخط حتى يخبرك المسعف بذلك</li>
+                                <li>اتبع التعليمات التي يعطيك إياها المسعف عبر الهاتف</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>الإسعافات الأولية والسلامة</h5>
+                    <p>معرفة تنقذ حياة - كن مستعداً دائماً</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>جميع المعلومات من مصادر موثوقة</p>
+                    <p>© 2023 جميع الحقوق محفوظة</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </footer>
 
-    <div class="card section" id="extinguishers">
-      <h2>طفايات الحريق — أنواع واستخدام</h2>
-      <p>فهم نوع الطفاية مهم لاختيارها واستخدامها بأمان.</p>
-      <div class="items" style="margin-top:12px">
-        <article class="item">
-          <img src="https://images.unsplash.com/photo-1547592180-3b288a8d5f8f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="طفاية حريق بودرة">
-          <div class="content">
-            <h3>طفاية بودرة (ABC)</h3>
-            <p>تغطي معظم أنواع الحرائق (الصلبة، السوائل، والأجهزة الكهربائية). جيدة للاستخدام العام في المنازل والمكاتب.</p>
-            <button class="btn" data-img="https://images.unsplash.com/photo-1547592180-3b288a8d5f8f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=4">عرض صورة</button>
-          </div>
-        </article>
-
-        <article class="item">
-          <img src="https://images.unsplash.com/photo-1582719478193-4f2a1a617a8a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5" alt="طفاية CO2">
-          <div class="content">
-            <h3>طفاية ثاني أكسيد الكربون (CO₂)</h3>
-            <p>مناسبة للأجهزة الكهربائية والحرائق السائلة الصغيرة، تترك بقع أقل من البودرة لكنها قد تكون أقل فعالية على حرائق المواد الصلبة.</p>
-            <button class="btn" data-img="https://images.unsplash.com/photo-1582719478193-4f2a1a617a8a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5">عرض صورة</button>
-          </div>
-        </article>
-
-        <article class="item">
-          <img src="https://images.unsplash.com/photo-1579546928683-5b9a6f4d8a2d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6" alt="طفاية مياه">
-          <div class="content">
-            <h3>طفاية مياه</h3>
-            <p>مفيدة لحرائق المواد الصلبة، لكنها خطرة مع حرائق الأجهزة الكهربائية والسوائل القابلة للاشتعال.</p>
-            <button class="btn" data-img="https://images.unsplash.com/photo-1579546928683-5b9a6f4d8a2d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6">عرض صورة</button>
-          </div>
-        </article>
-
-      </div>
-
-      <h3 style="margin-top:12px">طريقة استخدام الطفاية — قاعدة PASS</h3>
-      <ol style="padding-left:18px">
-        <li><strong>P</strong> - اسحب الدبوس (Pull)</li>
-        <li><strong>A</strong> - صوّب الفوهة نحو قاعدة اللهب (Aim)</li>
-        <li><strong>S</strong> - اضغط الزناد (Squeeze)</li>
-        <li><strong>S</strong> - حرّك الفوهة ذهابًا وإيابًا (Sweep)</li>
-      </ol>
-    </div>
-
-    <div class="card section" id="checklist">
-      <h2>قائمة فحص جاهزية الطفايات وعلبة الإسعافات</h2>
-      <div class="checklist">
-        <ul>
-          <li><input type="checkbox" id="c1"><label for="c1"> وجود طفاية قابلة للاستخدام في كل طابق</label></li>
-          <li><input type="checkbox" id="c2"><label for="c2"> فحص ضغط الطفاية (القرص الأخضر)</label></li>
-          <li><input type="checkbox" id="c3"><label for="c3"> وجود ضمادات شاملة ومعقم وملاقط</label></li>
-          <li><input type="checkbox" id="c4"><label for="c4"> تحديث تاريخ انتهاء صلاحية أدوات الإسعاف</label></li>
-        </ul>
-        <div style="margin-top:12px">
-          <button class="btn" id="printBtn">طباعة / حفظ كـ PDF</button>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <aside>
-    <div class="card">
-      <div class="search section">
-        <label style="font-weight:700">بحث سريع</label>
-        <input id="searchInput" placeholder="اكتب كلمة (حروق، نزيف، CO2...)"> 
-      </div>
-
-      <div style="margin-top:14px" class="section">
-        <label style="font-weight:700">وضع داكن</label>
-        <div style="margin-top:8px"><button id="toggleDark" class="btn">تبديل</button></div>
-      </div>
-
-      <div style="margin-top:14px" class="section">
-        <h3>اختبار بسيط</h3>
-        <p>هل تعرف ماذا تفعل عند حريق صغير؟</p>
-        <button id="quizBtn" class="btn">ابدأ الاختبار</button>
-      </div>
-
-    </div>
-
-    <div class="card" style="margin-top:12px" id="contact">
-      <h3>معلومات تواصل</h3>
-      <p>هذا مثال تعليمي. ضع هنا بيانات الاتصال الحقيقية إن أردت.</p>
-      <p style="font-size:13px;color:#555">البريد: example@example.com</p>
-    </div>
-  </aside>
-
-</div>
-
-  </main>  <div class="modal" id="modal">
-    <div class="frame card">
-      <button style="float:left;margin:10px" id="closeModal">إغلاق</button>
-      <div id="modalContent" style="padding:12px"></div>
-    </div>
-  </div>  <footer>
-    © كل الحقوق محفوظة · دليل تعليمي — لا يغني عن التدريب العملي والمهني
-  </footer>  <script>
-    // image modal
-    document.querySelectorAll('.btn[data-img]').forEach(b=>b.addEventListener('click',e=>{
-      const src=b.getAttribute('data-img');
-      const html=`<img src="${src}" alt="صورة">`;
-      document.getElementById('modalContent').innerHTML=html;
-      document.getElementById('modal').style.display='flex';
-    }));
-    document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').style.display='none');
-    document.getElementById('modal').addEventListener('click',e=>{ if(e.target.id==='modal') document.getElementById('modal').style.display='none'; });
-
-    // search (very simple)
-    const searchInput=document.getElementById('searchInput');
-    searchInput.addEventListener('input',e=>{
-      const q=e.target.value.trim();
-      if(!q){document.querySelectorAll('.item').forEach(i=>i.style.display='flex');return}
-      document.querySelectorAll('.item').forEach(item=>{
-        const text=item.innerText || item.textContent;
-        item.style.display = text.indexOf(q) !== -1 ? 'flex' : 'none';
-      })
-    });
-
-    // dark toggle
-    const toggle=document.getElementById('toggleDark');
-    toggle.addEventListener('click',()=>{
-      if(document.documentElement.style.getPropertyValue('--bg')!=='#222'){
-        document.documentElement.style.setProperty('--bg','#0f1720');
-        document.documentElement.style.setProperty('--card','#0b1220');
-        document.documentElement.style.setProperty('--text','#e6eef8');
-        document.documentElement.style.setProperty('--accent','#ff6b6b');
-      } else {
-        document.documentElement.style.setProperty('--bg','#f7f7fb');
-        document.documentElement.style.setProperty('--card','#fff');
-        document.documentElement.style.setProperty('--text','#222');
-        document.documentElement.style.setProperty('--accent','#d9534f');
-      }
-    });
-
-    // print checklist
-    document.getElementById('printBtn').addEventListener('click',()=>window.print());
-
-    // quiz
-    document.getElementById('quizBtn').addEventListener('click',()=>{
-      const q=confirm('هل الطفاية من نوع CO2 مناسبة لإطفاء حريق كهربائي؟ (موافق=نعم)');
-      if(q) alert('صحيح: طفاية CO2 مناسبة للأجهزة الكهربائية. لكن انتبه للسلامة وحجم الحريق.'); else alert('غير صحيح: طفاية CO2 مناسبة للأجهزة الكهربائية عادةً. تابع التدريب العملي.');
-    });
-
-    // accessibility: focus outlines
-    document.addEventListener('keydown',e=>{ if(e.key==='Tab') document.body.classList.add('show-focus'); });
-  </script></body>
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // دالة للتمركز إلى الأقسام
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // تحديث حالة الروابط النشطة في شريط التنقل
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // إضافة تأثير للبطاقات عند التمرير
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
 </html>
