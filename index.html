@@ -1,0 +1,249 @@
+<!doctype html>
+
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دليل الإسعافات الأولية وطفايات الحريق</title>
+  <style>
+    :root{--bg:#f7f7fb;--card:#fff;--accent:#d9534f;--text:#222}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,'Noto Sans Arabic',sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+    header{background:linear-gradient(90deg,#fff 0%,#f3f3f8 100%);padding:18px 20px;border-bottom:1px solid #e6e6ee;display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:white;font-weight:700}
+    nav{display:flex;gap:10px}
+    nav a{padding:8px 12px;background:transparent;border-radius:8px;text-decoration:none;color:var(--text);font-weight:600}
+    nav a:hover{background:#efeff6}.container{max-width:1100px;margin:26px auto;padding:0 18px}
+.grid{display:grid;grid-template-columns:1fr 340px;gap:18px}
+.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(35,35,77,0.06)}
+
+h1{margin:0;font-size:20px}
+.intro p{margin:10px 0 0}
+
+.section{margin-bottom:14px}
+.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.item{display:flex;flex-direction:column;border-radius:10px;overflow:hidden}
+.item img{width:100%;height:160px;object-fit:cover;display:block}
+.item .content{padding:12px}
+.item h3{margin:0 0 8px;font-size:16px}
+.item p{margin:0;font-size:14px;color:#444}
+
+aside .card{position:sticky;top:20px}
+.search input{width:100%;padding:10px;border-radius:8px;border:1px solid #e8e8f0}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;border:none;background:var(--accent);color:white;font-weight:700;cursor:pointer}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px}
+.modal .frame{background:white;border-radius:10px;max-width:900px;width:100%;max-height:90vh;overflow:auto}
+.modal img{width:100%;height:auto;border-radius:10px}
+
+footer{padding:18px;text-align:center;color:#666;font-size:14px}
+
+/* checklist & print */
+.checklist ul{list-style:none;padding:0;margin:0}
+.checklist li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #f0f0f0}
+.checklist input[type=checkbox]{width:18px;height:18px}
+
+/* responsive */
+@media(max-width:900px){.grid{grid-template-columns:1fr}.logo{width:48px;height:48px}}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">ط</div>
+      <div>
+        <h1>دليل الإسعافات الأولية وطفايات الحريق</h1>
+        <div style="font-size:12px;color:#666">موقع تعليمي عملي — شامل صور وخطوات سريعة</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#firstaid">الإسعافات</a>
+      <a href="#extinguishers">طفايات الحريق</a>
+      <a href="#checklist">قائمة فحص</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+  </header>  <main class="container">
+    <div class="grid">
+      <section>
+        <div class="card intro section" id="firstaid">
+          <h2>الإسعافات الأولية — خطوات عامة</h2>
+          <p>النقاط التالية موجزة وسريعة للتعامل مع حالات شائعة. إن كانت الحالة خطيرة اتصل بالإسعاف فورًا.</p>
+          <div style="margin-top:12px">
+            <div class="items">
+              <article class="item">
+                <img src="https://images.unsplash.com/photo-1582719478178-8f7b1b0d4e8b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="إسعاف جرح">
+                <div class="content">
+                  <h3>نزيف خارجي</h3>
+                  <p>اضغط بقوة على الجرح بقطعة قماش نظيفة لوقف النزيف، ارفع الطرف المصاب فوق مستوى القلب إن أمكن، وتوجه للمستشفى إذا استمر النزف.</p>
+                  <button class="btn" data-img="https://images.unsplash.com/photo-1582719478178-8f7b1b0d4e8b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1">عرض صورة</button>
+                </div>
+              </article><article class="item">
+            <img src="https://images.unsplash.com/photo-1582719478256-0bb7b8b1a45a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="إنعاش قلبي">
+            <div class="content">
+              <h3>إيقاف التنفس / فقدان الوعي</h3>
+              <p>تحقق من الوعي والتنفس، إذا لا يتنفس ابدأ بالإسعاف القلبي الرئوي (CPR) 30 ضغطات ثم 2 نفخات، واطلب المساعدة فورًا.</p>
+              <button class="btn" data-img="https://images.unsplash.com/photo-1582719478256-0bb7b8b1a45a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2">عرض صورة</button>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="https://images.unsplash.com/photo-1518241353330-3b3b0f6f6f1b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="حروق">
+            <div class="content">
+              <h3>حروق</h3>
+              <p>برد الحرق تحت ماء جاري لمدة 10-20 دقيقة، لا تضع معاجين أو زبدة، غطِّي بضمادة معقمة واطلب رعاية طبية إذا كان الحرق واسعًا أو عميقًا.</p>
+              <button class="btn" data-img="https://images.unsplash.com/photo-1518241353330-3b3b0f6f6f1b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3">عرض صورة</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card section" id="extinguishers">
+      <h2>طفايات الحريق — أنواع واستخدام</h2>
+      <p>فهم نوع الطفاية مهم لاختيارها واستخدامها بأمان.</p>
+      <div class="items" style="margin-top:12px">
+        <article class="item">
+          <img src="https://images.unsplash.com/photo-1547592180-3b288a8d5f8f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="طفاية حريق بودرة">
+          <div class="content">
+            <h3>طفاية بودرة (ABC)</h3>
+            <p>تغطي معظم أنواع الحرائق (الصلبة، السوائل، والأجهزة الكهربائية). جيدة للاستخدام العام في المنازل والمكاتب.</p>
+            <button class="btn" data-img="https://images.unsplash.com/photo-1547592180-3b288a8d5f8f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=4">عرض صورة</button>
+          </div>
+        </article>
+
+        <article class="item">
+          <img src="https://images.unsplash.com/photo-1582719478193-4f2a1a617a8a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5" alt="طفاية CO2">
+          <div class="content">
+            <h3>طفاية ثاني أكسيد الكربون (CO₂)</h3>
+            <p>مناسبة للأجهزة الكهربائية والحرائق السائلة الصغيرة، تترك بقع أقل من البودرة لكنها قد تكون أقل فعالية على حرائق المواد الصلبة.</p>
+            <button class="btn" data-img="https://images.unsplash.com/photo-1582719478193-4f2a1a617a8a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5">عرض صورة</button>
+          </div>
+        </article>
+
+        <article class="item">
+          <img src="https://images.unsplash.com/photo-1579546928683-5b9a6f4d8a2d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6" alt="طفاية مياه">
+          <div class="content">
+            <h3>طفاية مياه</h3>
+            <p>مفيدة لحرائق المواد الصلبة، لكنها خطرة مع حرائق الأجهزة الكهربائية والسوائل القابلة للاشتعال.</p>
+            <button class="btn" data-img="https://images.unsplash.com/photo-1579546928683-5b9a6f4d8a2d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6">عرض صورة</button>
+          </div>
+        </article>
+
+      </div>
+
+      <h3 style="margin-top:12px">طريقة استخدام الطفاية — قاعدة PASS</h3>
+      <ol style="padding-left:18px">
+        <li><strong>P</strong> - اسحب الدبوس (Pull)</li>
+        <li><strong>A</strong> - صوّب الفوهة نحو قاعدة اللهب (Aim)</li>
+        <li><strong>S</strong> - اضغط الزناد (Squeeze)</li>
+        <li><strong>S</strong> - حرّك الفوهة ذهابًا وإيابًا (Sweep)</li>
+      </ol>
+    </div>
+
+    <div class="card section" id="checklist">
+      <h2>قائمة فحص جاهزية الطفايات وعلبة الإسعافات</h2>
+      <div class="checklist">
+        <ul>
+          <li><input type="checkbox" id="c1"><label for="c1"> وجود طفاية قابلة للاستخدام في كل طابق</label></li>
+          <li><input type="checkbox" id="c2"><label for="c2"> فحص ضغط الطفاية (القرص الأخضر)</label></li>
+          <li><input type="checkbox" id="c3"><label for="c3"> وجود ضمادات شاملة ومعقم وملاقط</label></li>
+          <li><input type="checkbox" id="c4"><label for="c4"> تحديث تاريخ انتهاء صلاحية أدوات الإسعاف</label></li>
+        </ul>
+        <div style="margin-top:12px">
+          <button class="btn" id="printBtn">طباعة / حفظ كـ PDF</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <aside>
+    <div class="card">
+      <div class="search section">
+        <label style="font-weight:700">بحث سريع</label>
+        <input id="searchInput" placeholder="اكتب كلمة (حروق، نزيف، CO2...)"> 
+      </div>
+
+      <div style="margin-top:14px" class="section">
+        <label style="font-weight:700">وضع داكن</label>
+        <div style="margin-top:8px"><button id="toggleDark" class="btn">تبديل</button></div>
+      </div>
+
+      <div style="margin-top:14px" class="section">
+        <h3>اختبار بسيط</h3>
+        <p>هل تعرف ماذا تفعل عند حريق صغير؟</p>
+        <button id="quizBtn" class="btn">ابدأ الاختبار</button>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:12px" id="contact">
+      <h3>معلومات تواصل</h3>
+      <p>هذا مثال تعليمي. ضع هنا بيانات الاتصال الحقيقية إن أردت.</p>
+      <p style="font-size:13px;color:#555">البريد: example@example.com</p>
+    </div>
+  </aside>
+
+</div>
+
+  </main>  <div class="modal" id="modal">
+    <div class="frame card">
+      <button style="float:left;margin:10px" id="closeModal">إغلاق</button>
+      <div id="modalContent" style="padding:12px"></div>
+    </div>
+  </div>  <footer>
+    © كل الحقوق محفوظة · دليل تعليمي — لا يغني عن التدريب العملي والمهني
+  </footer>  <script>
+    // image modal
+    document.querySelectorAll('.btn[data-img]').forEach(b=>b.addEventListener('click',e=>{
+      const src=b.getAttribute('data-img');
+      const html=`<img src="${src}" alt="صورة">`;
+      document.getElementById('modalContent').innerHTML=html;
+      document.getElementById('modal').style.display='flex';
+    }));
+    document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').style.display='none');
+    document.getElementById('modal').addEventListener('click',e=>{ if(e.target.id==='modal') document.getElementById('modal').style.display='none'; });
+
+    // search (very simple)
+    const searchInput=document.getElementById('searchInput');
+    searchInput.addEventListener('input',e=>{
+      const q=e.target.value.trim();
+      if(!q){document.querySelectorAll('.item').forEach(i=>i.style.display='flex');return}
+      document.querySelectorAll('.item').forEach(item=>{
+        const text=item.innerText || item.textContent;
+        item.style.display = text.indexOf(q) !== -1 ? 'flex' : 'none';
+      })
+    });
+
+    // dark toggle
+    const toggle=document.getElementById('toggleDark');
+    toggle.addEventListener('click',()=>{
+      if(document.documentElement.style.getPropertyValue('--bg')!=='#222'){
+        document.documentElement.style.setProperty('--bg','#0f1720');
+        document.documentElement.style.setProperty('--card','#0b1220');
+        document.documentElement.style.setProperty('--text','#e6eef8');
+        document.documentElement.style.setProperty('--accent','#ff6b6b');
+      } else {
+        document.documentElement.style.setProperty('--bg','#f7f7fb');
+        document.documentElement.style.setProperty('--card','#fff');
+        document.documentElement.style.setProperty('--text','#222');
+        document.documentElement.style.setProperty('--accent','#d9534f');
+      }
+    });
+
+    // print checklist
+    document.getElementById('printBtn').addEventListener('click',()=>window.print());
+
+    // quiz
+    document.getElementById('quizBtn').addEventListener('click',()=>{
+      const q=confirm('هل الطفاية من نوع CO2 مناسبة لإطفاء حريق كهربائي؟ (موافق=نعم)');
+      if(q) alert('صحيح: طفاية CO2 مناسبة للأجهزة الكهربائية. لكن انتبه للسلامة وحجم الحريق.'); else alert('غير صحيح: طفاية CO2 مناسبة للأجهزة الكهربائية عادةً. تابع التدريب العملي.');
+    });
+
+    // accessibility: focus outlines
+    document.addEventListener('keydown',e=>{ if(e.key==='Tab') document.body.classList.add('show-focus'); });
+  </script></body>
+</html>
