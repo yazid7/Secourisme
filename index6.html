@@ -26,6 +26,7 @@
             --body-bg: #121212;
             --card-bg: #1e1e1e;
             --text-color: #f8f9fa;
+            --navbar-bg: #1a1a1a;
         }
         
         body {
@@ -34,7 +35,7 @@
             background-color: var(--body-bg, #f9f9f9);
             color: var(--text-color, #212529);
             transition: all 0.3s ease;
-            padding-top: 70px;
+            padding-top: 76px;
         }
         
         .hero-section {
@@ -105,8 +106,28 @@
             padding: 15px 20px;
         }
         
+        .navbar {
+            background-color: var(--navbar-bg, #343a40) !important;
+            transition: all 0.3s ease;
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand i {
+            color: var(--primary-color);
+            margin-left: 8px;
+        }
+        
         .nav-link {
-            color: white;
+            color: white !important;
             font-weight: 500;
             transition: all 0.3s;
             position: relative;
@@ -116,7 +137,7 @@
         }
         
         .nav-link:hover, .nav-link.active {
-            color: white;
+            color: white !important;
             background-color: rgba(255, 255, 255, 0.15);
         }
         
@@ -135,11 +156,19 @@
             width: calc(100% - 30px);
         }
         
+        .dropdown-menu {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+            background-color: var(--navbar-bg, #343a40);
+        }
+        
         .dropdown-item {
             padding: 10px 15px;
             transition: all 0.3s;
             border-radius: 5px;
             margin: 2px 5px;
+            color: var(--text-color, white);
         }
         
         .dropdown-item:hover {
@@ -220,7 +249,7 @@
         }
         
         .info-box {
-            background: white;
+            background: var(--card-bg, white);
             border-radius: 10px;
             padding: 25px;
             margin: 20px 0;
@@ -265,31 +294,15 @@
             background: #c82333;
         }
         
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-        
-        .dropdown-menu {
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: none;
-            background-color: #343a40;
-        }
-        
         .dropdown-toggle::after {
             margin-right: 5px;
         }
         
-        /* تحديثات شريط التنقل */
-        .navbar {
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-        }
-        
+        /* تحديثات شريط التنقل للجوال */
         .navbar-toggler {
             border: none;
             padding: 0.25rem 0.5rem;
+            color: white !important;
         }
         
         .navbar-toggler:focus {
@@ -438,10 +451,10 @@
 </head>
 <body>
     <!-- شريط التنقل المحسّن -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#home">
-                <i class="bi bi-heart-pulse fs-3 me-2"></i>
+            <a class="navbar-brand" href="#home">
+                <i class="bi bi-heart-pulse"></i>
                 <span>مركز الإسعافات الأولية</span>
             </a>
             
@@ -466,11 +479,11 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="firstAidDropdown">
                             <li><a class="dropdown-item" href="#first-aid-kit">علبة الإسعافات</a></li>
-                            <li><a class="dropdown-item" href="#cpr">إنعاش قلبي رئوي</a></li>
-                            <li><a class="dropdown-item" href="#bleeding">النزيف والجروح</a></li>
+                            <li><a class="dropdown-item" href="#recovery-position">الوضعية الأمنية الجانبية</a></li>
+                            <li><a class="dropdown-item" href="#cpr">الإنعاش القلبي الرئوي</a></li>
+                            <li><a class="dropdown-item" href="#bleeding">الجروح والنزيف</a></li>
                             <li><a class="dropdown-item" href="#fractures">الكسور</a></li>
                             <li><a class="dropdown-item" href="#burns">الحروق</a></li>
-                            <li><a class="dropdown-item" href="#recovery-position">وضعية الأمان الجانبية</a></li>
                             <li><a class="dropdown-item" href="#health-issues">توعك وحالات طبية</a></li>
                             <li><a class="dropdown-item" href="#accidents">الحوادث الطارئة</a></li>
                         </ul>
@@ -600,6 +613,79 @@
             </div>
         </section>
 
+        <!-- قسم الوضعية الأمنية الجانبية -->
+        <section id="recovery-position" class="my-5 pt-4">
+            <h2 class="section-title">الوضعية الأمنية الجانبية</h2>
+            
+            <div class="info-box">
+                <h4 class="text-primary"><i class="bi bi-person-check me-2"></i> ما هي وضعية الأمان الجانبية؟</h4>
+                <p>وضعية التعافي (وضعية الأمان الجانبية) تساعد على إبقاء مجرى الهواء مفتوحاً ومنع الاختناق في الشخص الفاقد للوعي الذي يتنفس بشكل طبيعي. تمنع هذه الوضعية انسداد مجرى الهواء باللسان أو القيء.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-arrow-right-circle me-2"></i> خطوات وضعية الأمان الجانبية</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="procedure-step">
+                                <h6><span class="step-number">1</span> تأكد من أن المصاب مستلقي على ظهره</h6>
+                                <p>تأكد من أن المصاب مستلقي على ظهره مع فرد ذراعيه وساقيه.</p>
+                            </div>
+                            <div class="procedure-step">
+                                <h6><span class="step-number">2</span> اثنِ الذراع والرجل</h6>
+                                <p>اثنِ الذراع الأقرب إليك بزاوية قائمة مع كف اليد لأعلى. اثنِ الرجل الأقرب إليك مع إبقاء القدم مسطحة على الأرض.</p>
+                            </div>
+                            <div class="procedure-step">
+                                <h6><span class="step-number">3</span> اسحب الركبة وادعم الرأس</h6>
+                                <p>اسحب الركبة لأعلى مع إبقاء القدم على الأرض. ادعم رأس ورقبة المصاب بيدك.</p>
+                            </div>
+                            <div class="procedure-step">
+                                <h6><span class="step-number">4</span> أدر المصاب تجاهك</h6>
+                                <p>أمسك بالركبة والكتف وأدر المصاب تجاهك بحذر حتى يستلقي على جانبه.</p>
+                            </div>
+                            <div class="procedure-step">
+                                <h6><span class="step-number">5</span> اضبط الوضعية</h6>
+                                <p>اضبط اليد السفلية تحت الخد لدعم الرأس. تأكد من إمالة الرأس للخلف للحفاظ على مجرى الهواء مفتوحاً.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i> متى تستخدم وضعية الأمان؟</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="first-aid-kit-item">
+                                <h6><i class="bi bi-check-lg text-success me-2"></i> الحالات المناسبة:</h6>
+                                <ul class="mt-3">
+                                    <li>شخص فاقد للوعي يتنفس بشكل طبيعي</li>
+                                    <li>بعد نوبة صرع</li>
+                                    <li>بعد التعافي من الغرق</li>
+                                    <li>شخص مخمور أو تحت تأثير المخدرات</li>
+                                </ul>
+                            </div>
+                            <div class="first-aid-kit-item">
+                                <h6><i class="bi bi-x-lg text-danger me-2"></i> الحالات غير المناسبة:</h6>
+                                <ul class="mt-3">
+                                    <li>شخص يعاني من إصابة في العمود الفقري</li>
+                                    <li>شخص لا يتنفس (يحتاج إلى CPR)</li>
+                                    <li>شخص يعاني من كسور في الحوض أو الفخذ</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="media-container">
+                                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="وضعية الأمان الجانبية">
+                                <div class="media-caption">وضعية الأمان الجانبية تساعد في الحفاظ على مجرى الهواء مفتوحاً</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- قسم الإنعاش القلبي الرئوي -->
         <section id="cpr" class="my-5 pt-4">
             <h2 class="section-title">الإنعاش القلبي الرئوي (CPR)</h2>
@@ -669,9 +755,9 @@
             </div>
         </section>
 
-        <!-- قسم النزيف والجروح -->
+        <!-- قسم الجروح والنزيف -->
         <section id="bleeding" class="my-5 pt-4">
-            <h2 class="section-title">النزيف والجروح</h2>
+            <h2 class="section-title">الجروح والنزيف</h2>
             
             <div class="info-box">
                 <h4 class="text-primary"><i class="bi bi-droplet me-2"></i> التعامل مع النزيف</h4>
@@ -899,80 +985,7 @@
             </div>
         </section>
 
-        <!-- قسم وضعية الأمان الجانبية -->
-        <section id="recovery-position" class="my-5 pt-4">
-            <h2 class="section-title">وضعية الأمان الجانبية</h2>
-            
-            <div class="info-box">
-                <h4 class="text-primary"><i class="bi bi-person-check me-2"></i> ما هي وضعية الأمان الجانبية؟</h4>
-                <p>وضعية التعافي (وضعية الأمان الجانبية) تساعد على إبقاء مجرى الهواء مفتوحاً ومنع الاختناق في الشخص الفاقد للوعي الذي يتنفس بشكل طبيعي. تمنع هذه الوضعية انسداد مجرى الهواء باللسان أو القيء.</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-0"><i class="bi bi-arrow-right-circle me-2"></i> خطوات وضعية الأمان الجانبية</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="procedure-step">
-                                <h6><span class="step-number">1</span> تأكد من أن المصاب مستلقي على ظهره</h6>
-                                <p>تأكد من أن المصاب مستلقي على ظهره مع فرد ذراعيه وساقيه.</p>
-                            </div>
-                            <div class="procedure-step">
-                                <h6><span class="step-number">2</span> اثنِ الذراع والرجل</h6>
-                                <p>اثنِ الذراع الأقرب إليك بزاوية قائمة مع كف اليد لأعلى. اثنِ الرجل الأقرب إليك مع إبقاء القدم مسطحة على الأرض.</p>
-                            </div>
-                            <div class="procedure-step">
-                                <h6><span class="step-number">3</span> اسحب الركبة وادعم الرأس</h6>
-                                <p>اسحب الركبة لأعلى مع إبقاء القدم على الأرض. ادعم رأس ورقبة المصاب بيدك.</p>
-                            </div>
-                            <div class="procedure-step">
-                                <h6><span class="step-number">4</span> أدر المصاب تجاهك</h6>
-                                <p>أمسك بالركبة والكتف وأدر المصاب تجاهك بحذر حتى يستلقي على جانبه.</p>
-                            </div>
-                            <div class="procedure-step">
-                                <h6><span class="step-number">5</span> اضبط الوضعية</h6>
-                                <p>اضبط اليد السفلية تحت الخد لدعم الرأس. تأكد من إمالة الرأس للخلف للحفاظ على مجرى الهواء مفتوحاً.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i> متى تستخدم وضعية الأمان؟</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="first-aid-kit-item">
-                                <h6><i class="bi bi-check-lg text-success me-2"></i> الحالات المناسبة:</h6>
-                                <ul class="mt-3">
-                                    <li>شخص فاقد للوعي يتنفس بشكل طبيعي</li>
-                                    <li>بعد نوبة صرع</li>
-                                    <li>بعد التعافي من الغرق</li>
-                                    <li>شخص مخمور أو تحت تأثير المخدرات</li>
-                                </ul>
-                            </div>
-                            <div class="first-aid-kit-item">
-                                <h6><i class="bi bi-x-lg text-danger me-2"></i> الحالات غير المناسبة:</h6>
-                                <ul class="mt-3">
-                                    <li>شخص يعاني من إصابة في العمود الفقري</li>
-                                    <li>شخص لا يتنفس (يحتاج إلى CPR)</li>
-                                    <li>شخص يعاني من كسور في الحوض أو الفخذ</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="media-container">
-                                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="وضعية الأمان الجانبية">
-                                <div class="media-caption">وضعية الأمان الجانبية تساعد في الحفاظ على مجرى الهواء مفتوحاً</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم التوعك والحالات الطبية -->
+        <!-- قسم توعك وحالات طبية -->
         <section id="health-issues" class="my-5 pt-4">
             <h2 class="section-title">توعك وحالات طبية</h2>
             
@@ -1201,71 +1214,6 @@
                                     <li>لا تدخن أو تشعل أي لهب</li>
                                     <li>لا تعطِ المصاب أي شيء عن طريق الفم إذا كان فاقداً للوعي</li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم اتصال الطوارئ -->
-        <section id="emergency-contacts" class="my-5 pt-4">
-            <h2 class="section-title">اتصال الطوارئ</h2>
-            
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card emergency-card h-100">
-                        <div class="card-body text-center py-4">
-                            <h3 class="text-danger mb-4"><i class="bi bi-telephone-fill me-2"></i> أرقام الطوارئ في الجزائر</h3>
-                            <div class="emergency-numbers">
-                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
-                                    <span class="fw-bold">الشرطة</span>
-                                    <strong class="text-danger fs-4">17</strong>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
-                                    <span class="fw-bold">الدرك الوطني</span>
-                                    <strong class="text-danger fs-5">1055</strong>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
-                                    <span class="fw-bold">الحماية المدنية (الإسعاف/الإطفاء)</span>
-                                    <strong class="text-danger fs-5">14</strong>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
-                                    <span class="fw-bold">الطوارئ الطبية (SAMU)</span>
-                                    <strong class="text-danger fs-5">2137</strong>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center p-3">
-                                    <span class="fw-bold">الدفاع المدني للغابات</span>
-                                    <strong class="text-danger fs-5">1070</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-0"><i class="bi bi-chat-left-text me-2"></i> معلومات يجب تقديمها عند الاتصال بالطوارئ</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ol>
-                                        <li><strong>مكان الحادث:</strong> عنوان دقيق، معلم بارز، الطابق، رقم الشقة</li>
-                                        <li><strong>نوع الحالة:</strong> حريق، إصابة، نزيف، حروق، إلخ</li>
-                                        <li><strong>عدد المصابين وحالتهم:</strong> عدد الأشخاص، أعمارهم، حالتهم الصحية</li>
-                                    </ol>
-                                </div>
-                                <div class="col-md-6">
-                                    <ol start="4">
-                                        <li><strong>اسمك ورقم هاتفك:</strong> للتواصل معك إذا لزم الأمر</li>
-                                        <li><strong>لا تقفل الخط:</strong> ابق على الخط حتى يخبرك المسعف بذلك</li>
-                                        <li><strong>اتبع التعليمات:</strong> اتبع التعليمات التي يعطيك إياها المسعف عبر الهاتف</li>
-                                    </ol>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1511,6 +1459,71 @@
                                     <li>اتصل بالطوارئ أولاً قبل محاولة إخماد الحريق</li>
                                     <li>احرص على وجود مخرج خلفك أثناء محاولة الإطفاء</li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم اتصال الطوارئ -->
+        <section id="emergency-contacts" class="my-5 pt-4">
+            <h2 class="section-title">اتصال الطوارئ</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card emergency-card h-100">
+                        <div class="card-body text-center py-4">
+                            <h3 class="text-danger mb-4"><i class="bi bi-telephone-fill me-2"></i> أرقام الطوارئ في الجزائر</h3>
+                            <div class="emergency-numbers">
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
+                                    <span class="fw-bold">الشرطة</span>
+                                    <strong class="text-danger fs-4">17</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                                    <span class="fw-bold">الدرك الوطني</span>
+                                    <strong class="text-danger fs-5">1055</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
+                                    <span class="fw-bold">الحماية المدنية (الإسعاف/الإطفاء)</span>
+                                    <strong class="text-danger fs-5">14</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                                    <span class="fw-bold">الطوارئ الطبية (SAMU)</span>
+                                    <strong class="text-danger fs-5">2137</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <span class="fw-bold">الدفاع المدني للغابات</span>
+                                    <strong class="text-danger fs-5">1070</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-chat-left-text me-2"></i> معلومات يجب تقديمها عند الاتصال بالطوارئ</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ol>
+                                        <li><strong>مكان الحادث:</strong> عنوان دقيق، معلم بارز، الطابق، رقم الشقة</li>
+                                        <li><strong>نوع الحالة:</strong> حريق، إصابة، نزيف، حروق، إلخ</li>
+                                        <li><strong>عدد المصابين وحالتهم:</strong> عدد الأشخاص، أعمارهم، حالتهم الصحية</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-6">
+                                    <ol start="4">
+                                        <li><strong>اسمك ورقم هاتفك:</strong> للتواصل معك إذا لزم الأمر</li>
+                                        <li><strong>لا تقفل الخط:</strong> ابق على الخط حتى يخبرك المسعف بذلك</li>
+                                        <li><strong>اتبع التعليمات:</strong> اتبع التعليمات التي يعطيك إياها المسعف عبر الهاتف</li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
