@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
+    
+        <style>
         :root {
             --primary-color: #dc3545;
             --secondary-color: #198754;
@@ -34,18 +35,17 @@
             background-color: var(--body-bg, #f9f9f9);
             color: var(--text-color, #212529);
             transition: all 0.3s ease;
-            padding-top: 76px;
+            padding-top: 70px;
         }
         
         .hero-section {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                         url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             color: white;
-            padding: 150px 0;
+            padding: 120px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
-            margin-top: -76px;
         }
         
         .hero-section::before {
@@ -107,29 +107,45 @@
         }
         
         .nav-link {
-            color: var(--dark-color);
+            color: white;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
             position: relative;
+            padding: 8px 15px !important;
+            border-radius: 5px;
+            margin: 0 2px;
         }
         
         .nav-link:hover, .nav-link.active {
-            color: var(--primary-color);
+            color: white;
+            background-color: rgba(255, 255, 255, 0.15);
         }
         
         .nav-link::after {
             content: '';
             position: absolute;
             bottom: 0;
-            right: 0;
+            right: 15px;
             width: 0;
             height: 2px;
-            background: var(--primary-color);
+            background: white;
             transition: width 0.3s;
         }
         
         .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
+            width: calc(100% - 30px);
+        }
+        
+        .dropdown-item {
+            padding: 10px 15px;
+            transition: all 0.3s;
+            border-radius: 5px;
+            margin: 2px 5px;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--primary-color);
+            color: white;
         }
         
         .first-aid-kit-item {
@@ -250,177 +266,26 @@
             background: #c82333;
         }
         
-        .badge-custom {
-            background: var(--accent-color);
-            font-size: 0.8rem;
-            padding: 5px 10px;
-            margin: 0 5px;
-        }
-        
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            right: 30px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--primary-color);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-            padding-right: 70px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            right: 22px;
-            top: 10px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            border: 4px solid white;
-            box-shadow: 0 0 0 3px var(--primary-color);
-        }
-        
-        .fire-type-card {
-            transition: all 0.3s;
-            border-top: 4px solid;
-        }
-        
-        .fire-type-a {
-            border-top-color: #dc3545;
-        }
-        
-        .fire-type-b {
-            border-top-color: #fd7e14;
-        }
-        
-        .fire-type-c {
-            border-top-color: #0d6efd;
-        }
-        
-        .fire-type-d {
-            border-top-color: #6f42c1;
-        }
-        
-        .fire-type-k {
-            border-top-color: #20c997;
-        }
-        
-        .extinguisher-type {
-            border-right: 4px solid;
-            transition: all 0.3s;
-        }
-        
-        .extinguisher-water {
-            border-right-color: #0d6efd;
-        }
-        
-        .extinguisher-foam {
-            border-right-color: #20c997;
-        }
-        
-        .extinguisher-co2 {
-            border-right-color: #6c757d;
-        }
-        
-        .extinguisher-powder {
-            border-right-color: #fd7e14;
-        }
-        
-        .extinguisher-wet-chemical {
-            border-right-color: #e83e8c;
-        }
-        
-        .health-issue-card {
-            border-left: 4px solid var(--secondary-color);
-            transition: all 0.3s;
-        }
-        
-        .health-issue-card:hover {
-            border-left-color: var(--primary-color);
-            transform: translateX(-5px);
-        }
-        
-        .first-aid-kit-img {
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 15px 0;
-        }
-        
-        .extinguisher-img {
-            max-height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
-        
-        .accident-card {
-            border-top: 4px solid var(--accent-color);
-            transition: all 0.3s;
-        }
-        
-        .accident-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
-        .download-btn {
-            background: linear-gradient(135deg, var(--secondary-color), #146c43);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            color: white;
-        }
-        
         .navbar-brand {
             font-weight: 700;
             font-size: 1.5rem;
-        }
-        
-        .navbar-nav .nav-item {
-            margin: 0 5px;
         }
         
         .dropdown-menu {
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border: none;
+            background-color: #343a40;
         }
         
-        .dropdown-item {
-            padding: 10px 15px;
-            transition: all 0.3s;
-        }
-        
-        .dropdown-item:hover {
-            background-color: var(--primary-color);
-            color: white;
+        .dropdown-toggle::after {
+            margin-right: 5px;
         }
         
         /* تحديثات شريط التنقل */
         .navbar {
             transition: all 0.3s ease;
+            padding: 0.5rem 0;
         }
         
         .navbar-toggler {
@@ -473,9 +338,11 @@
             
             .nav-link {
                 font-size: 1.2rem;
-                padding: 0.8rem 0;
+                padding: 0.8rem 0 !important;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 color: white !important;
+                margin: 0;
+                border-radius: 0;
             }
             
             .dropdown-menu {
@@ -488,6 +355,7 @@
             .dropdown-item {
                 color: rgba(255, 255, 255, 0.8);
                 padding: 0.5rem 1rem;
+                margin: 0;
             }
             
             .dropdown-item:hover {
@@ -509,19 +377,7 @@
         
         @media (max-width: 768px) {
             .hero-section {
-                padding: 120px 0;
-            }
-            
-            .timeline::before {
-                right: 20px;
-            }
-            
-            .timeline-item {
-                padding-right: 50px;
-            }
-            
-            .timeline-item::before {
-                right: 12px;
+                padding: 100px 0;
             }
             
             .section-title {
@@ -554,7 +410,7 @@
         
         @media (max-width: 576px) {
             .hero-section {
-                padding: 100px 0;
+                padding: 80px 0;
             }
             
             .hero-section h1 {
@@ -569,7 +425,16 @@
                 padding: 15px;
             }
         }
-    </style>
+    </style>   
+        
+        
+            
+            
+            
+            
+            
+            
+                
 </head>
 <body>
     <!-- شريط التنقل المُصحح -->
