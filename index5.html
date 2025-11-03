@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز الإسعافات الأولية والسلامة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #dc3545;
+            --secondary-color: #198754;
+            --accent-color: #0d6efd;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+        }
+        
+        [data-theme="dark"] {
+            --primary-color: #e5533d;
+            --secondary-color: #2aa876;
+            --accent-color: #3d8bfd;
+            --dark-color: #f8f9fa;
+            --light-color: #212529;
+            --body-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background-color: var(--body-bg, #f9f9f9);
+            color: var(--text-color, #212529);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(220, 53, 69, 0.3);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-right: 5px solid var(--primary-color);
+            padding-right: 15px;
+            margin: 40px 0 25px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .card {
+            transition: transform 0.4s, box-shadow 0.4s;
+            margin-bottom: 25px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--card-bg, white);
+            color: var(--text-color, #212529);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), #c82333);
+            color: white;
+            font-weight: 600;
+            border-bottom: none;
+            padding: 15px 20px;
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .first-aid-kit-item {
+            border-right: 3px solid var(--secondary-color);
+            padding-right: 15px;
+            margin-bottom: 15px;
+            background: rgba(25, 135, 84, 0.05);
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+        
+        .procedure-step {
+            background: linear-gradient(to left, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-right: 4px solid var(--primary-color);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .procedure-step:hover {
+            transform: translateX(-5px);
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-right: 5px solid #fdcb6e;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            color: #212529;
+        }
+        
+        .emergency-card {
+            border-right: 5px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+        
+        .emergency-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .media-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .media-container img, .media-container iframe {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .media-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        .media-caption {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .info-box {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            background: #c82333;
+        }
+        
+        .badge-custom {
+            background: var(--accent-color);
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-right: 70px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: 22px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+        
+        .fire-type-card {
+            transition: all 0.3s;
+            border-top: 4px solid;
+        }
+        
+        .fire-type-a {
+            border-top-color: #dc3545;
+        }
+        
+        .fire-type-b {
+            border-top-color: #fd7e14;
+        }
+        
+        .fire-type-c {
+            border-top-color: #0d6efd;
+        }
+        
+        .fire-type-d {
+            border-top-color: #6f42c1;
+        }
+        
+        .fire-type-k {
+            border-top-color: #20c997;
+        }
+        
+        .extinguisher-type {
+            border-right: 4px solid;
+            transition: all 0.3s;
+        }
+        
+        .extinguisher-water {
+            border-right-color: #0d6efd;
+        }
+        
+        .extinguisher-foam {
+            border-right-color: #20c997;
+        }
+        
+        .extinguisher-co2 {
+            border-right-color: #6c757d;
+        }
+        
+        .extinguisher-powder {
+            border-right-color: #fd7e14;
+        }
+        
+        .extinguisher-wet-chemical {
+            border-right-color: #e83e8c;
+        }
+        
+        .health-issue-card {
+            border-left: 4px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+        
+        .health-issue-card:hover {
+            border-left-color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+        
+        .first-aid-kit-img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 15px 0;
+        }
+        
+        .extinguisher-img {
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .accident-card {
+            border-top: 4px solid var(--accent-color);
+            transition: all 0.3s;
+        }
+        
+        .accident-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, var(--secondary-color), #146c43);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: white;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-nav .nav-item {
+            margin: 0 5px;
+        }
+        
+        .dropdown-menu {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+        }
+        
+        .dropdown-item {
+            padding: 10px 15px;
+            transition: all 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0;
+            }
+            
+            .timeline::before {
+                right: 20px;
+            }
+            
+            .timeline-item {
+                padding-right: 50px;
+            }
+            
+            .timeline-item::before {
+                right: 12px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .card-body {
+                padding: 15px;
+            }
+            
+            .procedure-step {
+                padding: 15px;
+            }
+            
+            .media-container iframe {
+                height: 200px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                left: 20px;
+            }
+            
+            .navbar-brand span {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .card-header h5 {
+                font-size: 1.1rem;
+            }
+            
+            .info-box {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-heart-pulse fs-3 me-2"></i>
+                <span>مركز الإسعافات الأولية</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">الرئيسية</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="firstAidDropdown" role="button" data-bs-toggle="dropdown">
+                            الإسعافات الأولية
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#first-aid-kit">علبة الإسعافات</a></li>
+                            <li><a class="dropdown-item" href="#cpr">إنعاش قلبي رئوي</a></li>
+                            <li><a class="dropdown-item" href="#bleeding">النزيف والجروح</a></li>
+                            <li><a class="dropdown-item" href="#fractures">الكسور</a></li>
+                            <li><a class="dropdown-item" href="#burns">الحروق</a></li>
+                            <li><a class="dropdown-item" href="#recovery-position">وضعية الأمان الجانبية</a></li>
+                            <li><a class="dropdown-item" href="#health-issues">توعك وحالات طبية</a></li>
+                            <li><a class="dropdown-item" href="#accidents">الحوادث الطارئة</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="safetyDropdown" role="button" data-bs-toggle="dropdown">
+                            السلامة
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#fire-extinguishers">أنواع طفايات الحريق</a></li>
+                            <li><a class="dropdown-item" href="#evacuation">إجراءات الإجلاء</a></li>
+                            <li><a class="dropdown-item" href="#fire-types">أنواع الحرائق</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#emergency-contacts">اتصال الطوارئ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light me-2" id="darkModeToggle">
+                        <i class="bi bi-moon"></i>
+                    </button>
+                    <button class="btn btn-danger me-2" onclick="scrollToSection('emergency-contacts')">
+                        <i class="bi bi-telephone"></i> طوارئ
+                    </button>
+                    <button class="btn btn-success download-btn" onclick="downloadFirstAidBook()">
+                        <i class="bi bi-download"></i> تحميل الكتاب
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم الهيرو -->
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <h1 class="display-4 fw-bold mb-4">مركز الإسعافات الأولية والسلامة</h1>
+            <p class="lead mb-4 fs-5">معرفة تنقذ حياة - تعلم المهارات الأساسية للإسعافات الأولية والسلامة من الحرائق</p>
+            <div>
+                <button class="btn btn-danger btn-lg mt-3 me-3" onclick="scrollToSection('first-aid-kit')">
+                    ابدأ الرحلة <i class="bi bi-arrow-down"></i>
+                </button>
+                <button class="btn btn-outline-light btn-lg mt-3 me-3" onclick="scrollToSection('emergency-contacts')">
+                    أرقام الطوارئ <i class="bi bi-telephone"></i>
+                </button>
+                <button class="btn btn-success btn-lg mt-3 download-btn" onclick="downloadFirstAidBook()">
+                    <i class="bi bi-download"></i> تحميل الكتاب
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- المحتويات الرئيسية -->
+    <div class="container my-5">
+        <!-- قسم الحوادث الطارئة -->
+        <section id="accidents" class="my-5 pt-4">
+            <h2 class="section-title">الحوادث الطارئة</h2>
+            
+            <div class="info-box">
+                <h4 class="text-primary"><i class="bi bi-exclamation-triangle me-2"></i> التعامل مع الحوادث الطارئة</h4>
+                <p>الحوادث الطارئة مثل لدغات العقارب والثعابين، والصعق الكهربائي، والاختناق بالغاز تتطلب استجابة سريعة ومنظمة. معرفة الإجراءات الصحيحة في هذه المواقف يمكن أن تنقذ حياة المصاب وتقلل من المضاعفات الخطيرة.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card accident-card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-bug me-2"></i> لدغة العقرب</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>الأعراض:</strong> ألم شديد، تنميل، احمرار، تورم، غثيان، صعوبة في التنفس</p>
+                            <p><strong>الإسعافات الأولية:</strong></p>
+                            <ol>
+                                <li>حافظ على هدوء المصاب وطمئنه</li>
+                                <li>اغسل منطقة اللدغة بالماء والصابون</li>
+                                <li>ضع كمادات باردة على المنطقة لتخفيف الألم والتورم</li>
+                                <li>أبعد المصاب عن مصدر الخطر</li>
+                                <li>لا تستخدم العاصبة (الرباط الضاغط)</li>
+                                <li>لا تحاول شفط السم</li>
+                                <li>اطلب المساعدة الطبية فوراً</li>
+                            </ol>
+                            
+                            <div class="warning-box mt-3">
+                                <h6><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> ملاحظات هامة:</h6>
+                                <ul class="mt-3">
+                                    <li>حاول تحديد نوع العقرب إذا أمكن</li>
+                                    <li>راقب العلامات الحيوية للمصاب</li>
+                                    <li>لا تعطي المصاب أي طعام أو شراب</li>
+                                    <li>لا تضع الثلج مباشرة على الجلد</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card accident-card mt-4">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-lightning-charge me-2"></i> الصعق الكهربائي</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>الأعراض:</strong> حروق، توقف القلب، صعوبة في التنفس، فقدان الوعي</p>
+                            <p><strong>الإسعافات الأولية:</strong></p>
+                            <ol>
+                                <li>افصل مصدر الكهرباء أولاً قبل لمس المصاب</li>
+                                <li>استخدم مادة غير موصلة للكهرباء لتحريك المصاب بعيداً</li>
+                                <li>تحقق من التنفس والنبض</li>
+                                <li>ابدأ الإنعاش القلبي الرئوي إذا لزم الأمر</li>
+                                <li>غطِ الحروق بضمادة معقمة وجافة</li>
+                                <li>اطلب المساعدة الطبية فوراً</li>
+                            </ol>
+                            
+                            <div class="warning-box mt-3">
+                                <h6><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> تحذيرات هامة:</h6>
+                                <ul class="mt-3">
+                                    <li>لا تلمس المصاب بيدك العارية أثناء وجوده متصلاً بالتيار</li>
+                                    <li>لا تستخدم الماء لإطفاء حريق كهربائي</li>
+                                    <li>ابحث عن نقطة انفصال آمنة للتيار الكهربائي</li>
+                                    <li>حتى التيار المنخفض يمكن أن يكون قاتلاً</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card accident-card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-snake me-2"></i> لدغة الثعبان</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>الأعراض:</strong> ألم، تورم، غثيان، دوخة، صعوبة في التنفس، شلل</p>
+                            <p><strong>الإسعافات الأولية:</strong></p>
+                            <ol>
+                                <li>أبعد المصاب عن منطقة الخطر</li>
+                                <li>حافظ على هدوء المصاب وطمئنه</li>
+                                <li>اجعل المنطقة المصابة أقل من مستوى القلب</li>
+                                <li>اغسل الجرح بالماء والصابون</li>
+                                <li>غطِ الجرح بضمادة نظيفة</li>
+                                <li>لا تمشي كثيراً لتجنب انتشار السم</li>
+                                <li>اطلب المساعدة الطبية فوراً</li>
+                            </ol>
+                            
+                            <div class="warning-box mt-3">
+                                <h6><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> ممنوعات:</h6>
+                                <ul class="mt-3">
+                                    <li>لا تحاول شفط السم</li>
+                                    <li>لا تستخدم العاصبة (الرباط الضاغط)</li>
+                                    <li>لا تضع ثلجاً على اللدغة</li>
+                                    <li>لا تعطي المصاب أي كحول أو منبهات</li>
+                                    <li>لا تقطع الجرح</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card accident-card mt-4">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-cloud-haze2 me-2"></i> الاختناق بالغاز</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>الأعراض:</strong> دوخة، صداع، غثيان، صعوبة في التنفس، فقدان الوعي</p>
+                            <p><strong>الإسعافات الأولية:</strong></p>
+                            <ol>
+                                <li>انقل المصاب إلى مكان جيد التهوية فوراً</li>
+                                <li>افتح النوافذ والأبواب لتهوية المكان</li>
+                                <li>تحقق من التنفس والنبض</li>
+                                <li>ابدأ الإنعاش القلبي الرئوي إذا لزم الأمر</li>
+                                <li>أزل الملابس الضيقة عن المصاب</li>
+                                <li>غطِ المصاب للحفاظ على دفء جسمه</li>
+                                <li>اطلب المساعدة الطبية فوراً</li>
+                            </ol>
+                            
+                            <div class="warning-box mt-3">
+                                <h6><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> نصائح وقائية:</h6>
+                                <ul class="mt-3">
+                                    <li>تأكد من تهوية الأماكن المغلقة جيداً</li>
+                                    <li>افحص أجهزة التدفئة والغاز بانتظام</li>
+                                    <li>ثبت أجهزة كشف الغاز في المنزل</li>
+                                    <li>لا تستخدم الأفران أو السخانات للتدفئة في غرف مغلقة</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="media-container mt-3">
+                                <img src="https://images.unsplash.com/photo-1588614959060-4d144f28b207?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="الاختناق بالغاز">
+                                <div class="media-caption">تهوية المكان هي أول خطوة لإنقاذ مصاب الاختناق بالغاز</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-lightbulb me-2"></i> نصائح عامة للتعامل مع الحوادث الطارئة</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>حافظ على هدوءك وتصرف بطريقة منظمة</li>
+                                        <li>اطلب المساعدة الطبية فوراً في الحالات الخطيرة</li>
+                                        <li>لا تعطي المصاب أي طعام أو شراب في حالات الإصابات الخطيرة</li>
+                                        <li>راقب العلامات الحيوية للمصاب باستمرار</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>لا تحرك المصاب إذا كانت هناك إصابات في الرقبة أو العمود الفقري</li>
+                                        <li>استخدم معدات الحماية الشخصية عند تقديم المساعدة</li>
+                                        <li>تعرف على أرقام الطوارئ المحلية واحفظها</li>
+                                        <li>خذ دورة إسعافات أولية لتكون مستعداً</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم علبة الإسعافات الأولية -->
+        <section id="first-aid-kit" class="my-5 pt-4">
+            <h2 class="section-title">علبة الإسعافات الأولية</h2>
+            
+            <div class="info-box">
+                <h4 class="text-primary"><i class="bi bi-bag-plus me-2"></i> أهمية علبة الإسعافات الأولية</h4>
+                <p>علبة الإسعافات الأولية هي مجموعة من الأدوات والمستلزمات الطبية الأساسية التي تساعد في تقديم الرعاية الأولية في حالات الطوارئ قبل وصول المساعدة الطبية المتخصصة. وجود علبة إسعافات متكاملة في المنزل والعمل والسيارة يمكن أن ينقذ حياة شخص ما في الحالات الحرجة.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-bag-check me-2"></i> محتويات علبة الإسعافات الأساسية</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="first-aid-kit-item">
+                                <h6><i class="bi bi-check-circle-fill text-success me-2"></i> المواد الأساسية:</h6>
+                                <ul class="mt-3">
+                                    <li>ضمادات معقمة بمختلف الأحجام (صغيرة، متوسطة، كبيرة)</li>
+                                    <li>شاش طبي معقم (لفافات وقطع مربعة)</li>
+                                    <li>لاصق طبي (لصقات وشريط لاصق)</li>
+                                    <li>مقص طبي مقوس للحماية</li>
+                                    <li>ملاقط طبية لإزالة الشظايا</li>
+                                    <li>قفازات طبية معقمة (10 أزواج على الأقل)</li>
+                                    <li>مطهر طبي (بيتادين أو كحول 70%)</li>
+                                    <li>ميزان حرارة رقمي</li>
+                                    <li>مصباح يدوي صغير مع بطاريات إضافية</li>
+                                    <li>بطانيات طارئة للحفاظ على حرارة الجسم</li>
+                                </ul>
+                            </div>
+                            <div class="first-aid-kit-item">
+                                <h6><i class="bi bi-capsule-pill text-primary me-2"></i> الأدوية الأساسية:</h6>
+                                <ul class="mt-3">
+                                    <li>مسكنات الألم (باراسيتامول، إيبوبروفين)</li>
+                                    <li>مرهم للحروق يحتوي على ليدوكائين</li>
+                                    <li>كريم مضاد حيوي (نيوسبورين أو ما شابه)</li>
+                                    <li>أدوية مضادة للحساسية (مضادات الهيستامين)</li>
+                                    <li>محلول معالجة الجفاف (أملاح الإماهة)</li>
+                                    <li>أدوية مضادة للإسهال</li>
+                                    <li>محلول ملحي للعين</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-lightbulb me-2"></i> نصائح هامة للاستخدام والصيانة</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="warning-box">
+                                <h6><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> تأكد من:</h6>
+                                <ul class="mt-3">
+                                    <li>وضع العلبة في مكان معروف للجميع وبعيد عن متناول الأطفال</li>
+                                    <li>فحص العلبة بانتظام كل 3-6 أشهر وتجديد المواد المنتهية الصلاحية</li>
+                                    <li>وجود دليل إسعافات أولية مع العلبة</li>
+                                    <li>تضمين قائمة بأرقام الطوارئ في العلبة وفي غطائها</li>
+                                    <li>تخصيص علبة منفصلة للسفر والسيارة</li>
+                                    <li>تدريب جميع أفراد الأسرة على استخدام محتويات العلبة</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="media-container">
+                                <img src="https://images.unsplash.com/photo-1584302179602-e4813ed21d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="علبة الإسعافات الأولية" class="first-aid-kit-img">
+                                <div class="media-caption">علبة إسعافات أولية متكاملة تحتوي على جميع الأساسيات</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم اتصال الطوارئ -->
+        <section id="emergency-contacts" class="my-5 pt-4">
+            <h2 class="section-title">اتصال الطوارئ</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card emergency-card h-100">
+                        <div class="card-body text-center py-4">
+                            <h3 class="text-danger mb-4"><i class="bi bi-telephone-fill me-2"></i> أرقام الطوارئ في السعودية</h3>
+                            <div class="emergency-numbers">
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
+                                    <span class="fw-bold">الطوارئ الموحدة</span>
+                                    <strong class="text-danger fs-4">911</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                                    <span class="fw-bold">الدفاع المدني</span>
+                                    <strong class="text-danger fs-5">998</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
+                                    <span class="fw-bold">الشرطة</span>
+                                    <strong class="text-danger fs-5">999</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                                    <span class="fw-bold">الإسعاف</span>
+                                    <strong class="text-danger fs-5">997</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <span class="fw-bold">المرور</span>
+                                    <strong class="text-danger fs-5">993</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card emergency-card h-100">
+                        <div class="card-body text-center py-4">
+                            <h3 class="text-danger mb-4"><i class="bi bi-telephone-fill me-2"></i> أرقام الطوارئ في الجزائر</h3>
+                            <div class="emergency-numbers">
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
+                                    <span class="fw-bold">الشرطة</span>
+                                    <strong class="text-danger fs-4">17</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                                    <span class="fw-bold">الدرك الوطني</span>
+                                    <strong class="text-danger fs-5">1055</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
+                                    <span class="fw-bold">الحماية المدنية (الإسعاف/الإطفاء)</span>
+                                    <strong class="text-danger fs-5">14</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                                    <span class="fw-bold">الطوارئ الطبية (SAMU)</span>
+                                    <strong class="text-danger fs-5">2137</strong>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <span class="fw-bold">الدفاع المدني للغابات</span>
+                                    <strong class="text-danger fs-5">1070</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-chat-left-text me-2"></i> معلومات يجب تقديمها عند الاتصال بالطوارئ</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ol>
+                                        <li><strong>مكان الحادث:</strong> عنوان دقيق، معلم بارز، الطابق، رقم الشقة</li>
+                                        <li><strong>نوع الحالة:</strong> حريق، إصابة، نزيف، حروق، إلخ</li>
+                                        <li><strong>عدد المصابين وحالتهم:</strong> عدد الأشخاص، أعمارهم، حالتهم الصحية</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-6">
+                                    <ol start="4">
+                                        <li><strong>اسمك ورقم هاتفك:</strong> للتواصل معك إذا لزم الأمر</li>
+                                        <li><strong>لا تقفل الخط:</strong> ابق على الخط حتى يخبرك المسعف بذلك</li>
+                                        <li><strong>اتبع التعليمات:</strong> اتبع التعليمات التي يعطيك إياها المسعف عبر الهاتف</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="d-flex align-items-center mb-3">
+                        <i class="bi bi-heart-pulse fs-4 me-2"></i>
+                        مركز الإسعافات الأولية
+                    </h5>
+                    <p class="mb-4">معرفة تنقذ حياة - كن مستعداً دائماً</p>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="mb-3">روابط سريعة</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#first-aid-kit" class="text-white-50 text-decoration-none">علبة الإسعافات</a></li>
+                        <li class="mb-2"><a href="#cpr" class="text-white-50 text-decoration-none">الإنعاش القلبي الرئوي</a></li>
+                        <li class="mb-2"><a href="#accidents" class="text-white-50 text-decoration-none">الحوادث الطارئة</a></li>
+                        <li class="mb-2"><a href="#fire-extinguishers" class="text-white-50 text-decoration-none">طفايات الحريق</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="mb-3">معلومات الاتصال</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@firstaid.com</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i> +966 123 456 789</li>
+                        <li><i class="bi bi-geo-alt me-2"></i> الرياض، السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>جميع المعلومات من مصادر موثوقة</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>© 2023 مركز الإسعافات الأولية. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <div class="floating-btn" onclick="scrollToTop()">
+        <i class="bi bi-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // دالة للتمركز إلى الأقسام
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // دالة للعودة إلى الأعلى
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // إظهار/إخفاء زر العودة للأعلى
+        window.addEventListener('scroll', function() {
+            const floatingBtn = document.querySelector('.floating-btn');
+            if (window.pageYOffset > 300) {
+                floatingBtn.style.display = 'flex';
+            } else {
+                floatingBtn.style.display = 'none';
+            }
+        });
+        
+        // تحديث حالة الروابط النشطة في شريط التنقل
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // زر تحميل كتاب الإسعافات الأولية
+        function downloadFirstAidBook() {
+            // في التطبيق الحقيقي، هنا سيتم رفع ملف PDF حقيقي
+            alert('سيبدأ تحميل كتاب الإسعافات الأولية قريباً. شكراً لاهتمامك!');
+            // يمكن استبدال هذا برابط تحميل حقيقي
+            // window.location.href = 'path/to/first-aid-book.pdf';
+        }
+        
+        // نظام الوضع المظلم
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // التحقق من التفضيل المحفوظ
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.setAttribute('data-theme', 'dark');
+            darkModeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+        }
+        
+        darkModeToggle.addEventListener('click', function() {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeToggle.innerHTML = '<i class="bi bi-moon"></i>';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
