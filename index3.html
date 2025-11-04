@@ -23,6 +23,8 @@
             --body-bg-dark: #121212;
             --navbar-bg-light: #343a40;
             --navbar-bg-dark: #1a1a1a;
+            --procedure-bg-light: #f8f9fa;
+            --procedure-bg-dark: #2d2d2d;
         }
         
         [data-theme="dark"] {
@@ -35,6 +37,7 @@
             --card-bg: var(--card-bg-dark);
             --text-color: var(--card-text-dark);
             --navbar-bg: var(--navbar-bg-dark);
+            --procedure-bg: var(--procedure-bg-dark);
         }
         
         body {
@@ -72,7 +75,7 @@
             z-index: 2;
         }
         
-        /* شريط الأخبار المتحرك */
+        /* شريط الأخبار المتحرك - تم التعديل */
         .news-ticker {
             background: linear-gradient(135deg, var(--primary-color), #c82333);
             color: white;
@@ -89,15 +92,16 @@
         }
         
         .news-ticker-content {
-            display: inline-flex;
-            animation: ticker 40s linear infinite;
+            display: flex;
             white-space: nowrap;
+            animation: ticker 60s linear infinite;
         }
         
         .news-ticker-item {
             padding: 0 40px;
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
         
         .news-ticker-item i {
@@ -291,16 +295,19 @@
             background: rgba(25, 135, 84, 0.05);
             border-radius: 5px;
             padding: 10px 15px;
+            color: var(--text-color, var(--card-text-light));
         }
         
+        /* إصلاح مشكلة الوضعية الأمنية الجانبية */
         .procedure-step {
-            background: linear-gradient(to left, #f8f9fa, #e9ecef);
+            background: var(--procedure-bg, var(--procedure-bg-light));
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
             border-right: 4px solid var(--primary-color);
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             transition: transform 0.3s;
+            color: var(--text-color, var(--card-text-light));
         }
         
         .procedure-step:hover {
@@ -452,6 +459,49 @@
             width: auto;
             height: auto;
             padding: 0;
+        }
+        
+        /* أيقونة الوضع المظلم المخصصة */
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+        
+        .theme-toggle .bi-moon {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle .bi-sun {
+            position: absolute;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: rotate(90deg);
+        }
+        
+        [data-theme="dark"] .theme-toggle .bi-moon {
+            opacity: 0;
+            transform: rotate(-90deg);
+        }
+        
+        [data-theme="dark"] .theme-toggle .bi-sun {
+            opacity: 1;
+            transform: rotate(0);
         }
         
         /* تحديثات شريط التنقل للجوال */
@@ -673,8 +723,9 @@
                     </li>
                 </ul>
                 <div class="d-flex mt-3 mt-lg-0">
-                    <button class="btn btn-outline-light me-2" id="darkModeToggle">
+                    <button class="btn theme-toggle me-2" id="darkModeToggle">
                         <i class="bi bi-moon"></i>
+                        <i class="bi bi-sun"></i>
                     </button>
                     <button class="btn btn-danger me-2" onclick="scrollToSection('emergency-contacts')">
                         <i class="bi bi-telephone"></i> طوارئ
@@ -706,7 +757,7 @@
         </div>
     </section>
 
-    <!-- شريط الأخبار المتحرك -->
+    <!-- شريط الأخبار المتحرك - تم التعديل -->
     <div class="news-ticker">
         <div class="ticker-container">
             <div class="news-ticker-content">
@@ -934,7 +985,7 @@
             </div>
         </section>
 
-        <!-- قسم الوضعية الأمنية الجانبية -->
+        <!-- قسم الوضعية الأمنية الجانبية - تم إصلاح مشكلة الألوان -->
         <section id="recovery-position" class="my-5 pt-4">
             <h2 class="section-title">الوضعية الأمنية الجانبية</h2>
             
@@ -2094,27 +2145,35 @@
             alert('سيبدأ تحميل كتاب الإسعافات الأولية قريباً. شكراً لاهتمامك!');
         }
         
-        // نظام الوضع المظلم
+        // نظام الوضع المظلم الجديد
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
         
         // التحقق من التفضيل المحفوظ
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.setAttribute('data-theme', 'dark');
-            darkModeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
         }
         
         darkModeToggle.addEventListener('click', function() {
             if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                localStorage.setItem('darkMode', 'disabled');
-                darkModeToggle.innerHTML = '<i class="bi bi-moon"></i>';
+                disableDarkMode();
             } else {
-                body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('darkMode', 'enabled');
-                darkModeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+                enableDarkMode();
             }
         });
+        
+        function enableDarkMode() {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+        
+        function disableDarkMode() {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        }
         
         // التحكم في زر الإغلاق X للقائمة على الأجهزة المحمولة
         const closeNavbar = document.getElementById('closeNavbar');
