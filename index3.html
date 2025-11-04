@@ -172,26 +172,6 @@
             color: var(--text-color, var(--card-text-light));
         }
         
-        .gallery-card-btn {
-            background: linear-gradient(135deg, var(--primary-color), #c82333);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            align-self: flex-start;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .gallery-card-btn:hover {
-            background: linear-gradient(135deg, #c82333, var(--primary-color));
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
-            color: white;
-        }
-        
         .section-title {
             color: var(--primary-color);
             border-right: 5px solid var(--primary-color);
@@ -431,12 +411,16 @@
         .modal-content {
             border-radius: 15px;
             overflow: hidden;
+            background-color: var(--card-bg, var(--card-bg-light));
+            color: var(--text-color, var(--card-text-light));
         }
         
         .modal-header {
             border-bottom: none;
             background: var(--primary-color);
             color: white;
+            padding: 15px 20px;
+            position: relative;
         }
         
         .modal-body {
@@ -453,6 +437,21 @@
             padding: 20px;
             background: var(--card-bg, var(--card-bg-light));
             color: var(--text-color, var(--card-text-light));
+        }
+        
+        .btn-close-custom {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            z-index: 1055;
+            opacity: 1;
+            width: auto;
+            height: auto;
+            padding: 0;
         }
         
         /* تحديثات شريط التنقل للجوال */
@@ -771,7 +770,6 @@
                         <div class="gallery-card-body">
                             <h3 class="gallery-card-title">الإنعاش القلبي الرئوي</h3>
                             <p class="gallery-card-text">تعلم كيفية إنقاذ حياة شخص بتوقف القلب أو التنفس باستخدام تقنيات الإنعاش القلبي الرئوي الصحيحة خطوة بخطوة.</p>
-                            <a href="#cpr" class="gallery-card-btn">تعلم المزيد</a>
                         </div>
                     </div>
                 </div>
@@ -784,7 +782,6 @@
                         <div class="gallery-card-body">
                             <h3 class="gallery-card-title">علبة الإسعافات الأولية</h3>
                             <p class="gallery-card-text">اكتشف المحتويات الأساسية التي يجب توفرها في علبة الإسعافات الأولية وكيفية استخدامها في الحالات الطارئة.</p>
-                            <a href="#first-aid-kit" class="gallery-card-btn">تعلم المزيد</a>
                         </div>
                     </div>
                 </div>
@@ -797,7 +794,6 @@
                         <div class="gallery-card-body">
                             <h3 class="gallery-card-title">إجراءات الإجلاء</h3>
                             <p class="gallery-card-text">تعرف على الخطوات الصحيحة للإخلاء في حالات الطوارئ مثل الحرائق وكيفية التصرف لضمان سلامتك وسلامة الآخرين.</p>
-                            <a href="#evacuation" class="gallery-card-btn">تعلم المزيد</a>
                         </div>
                     </div>
                 </div>
@@ -810,7 +806,6 @@
                         <div class="gallery-card-body">
                             <h3 class="gallery-card-title">الحروق وعلاجها</h3>
                             <p class="gallery-card-text">اكتشف كيفية التعامل مع مختلف درجات الحروق والإسعافات الأولية المناسبة لكل نوع لتجنب المضاعفات.</p>
-                            <a href="#burns" class="gallery-card-btn">تعلم المزيد</a>
                         </div>
                     </div>
                 </div>
@@ -823,7 +818,6 @@
                         <div class="gallery-card-body">
                             <h3 class="gallery-card-title">النزيف والجروح</h3>
                             <p class="gallery-card-text">تعلم كيفية السيطرة على النزيف والتعامل مع الجروح المختلفة لمنع العدوى وفقدان الدم المفرط.</p>
-                            <a href="#bleeding" class="gallery-card-btn">تعلم المزيد</a>
                         </div>
                     </div>
                 </div>
@@ -836,7 +830,6 @@
                         <div class="gallery-card-body">
                             <h3 class="gallery-card-title">الكسور والإصابات</h3>
                             <p class="gallery-card-text">اكتشف كيفية التعامل مع الكسور والإصابات العظمية وتثبيتها حتى وصول المساعدة الطبية المتخصصة.</p>
-                            <a href="#fractures" class="gallery-card-btn">تعلم المزيد</a>
                         </div>
                     </div>
                 </div>
@@ -850,7 +843,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="imageModalLabel"></h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
                 </div>
                 <div class="modal-body p-0">
                     <img src="" class="modal-image" alt="">
