@@ -75,7 +75,7 @@
             z-index: 2;
         }
         
-        /* شريط الأخبار المتحرك - تم التعديل */
+        /* شريط الأخبار المتحرك */
         .news-ticker {
             background: linear-gradient(135deg, var(--primary-color), #c82333);
             color: white;
@@ -386,6 +386,53 @@
             font-weight: bold;
         }
         
+        /* زر الوضع المظلم الجديد */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 100px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+            background: #c82333;
+        }
+        
+        .dark-mode-toggle .bi-moon {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode-toggle .bi-sun {
+            position: absolute;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: rotate(90deg);
+        }
+        
+        [data-theme="dark"] .dark-mode-toggle .bi-moon {
+            opacity: 0;
+            transform: rotate(-90deg);
+        }
+        
+        [data-theme="dark"] .dark-mode-toggle .bi-sun {
+            opacity: 1;
+            transform: rotate(0);
+        }
+        
         .floating-btn {
             position: fixed;
             bottom: 30px;
@@ -459,49 +506,6 @@
             width: auto;
             height: auto;
             padding: 0;
-        }
-        
-        /* أيقونة الوضع المظلم المخصصة */
-        .theme-toggle {
-            background: transparent;
-            border: 2px solid white;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.1);
-        }
-        
-        .theme-toggle .bi-moon {
-            position: absolute;
-            transition: all 0.3s ease;
-        }
-        
-        .theme-toggle .bi-sun {
-            position: absolute;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: rotate(90deg);
-        }
-        
-        [data-theme="dark"] .theme-toggle .bi-moon {
-            opacity: 0;
-            transform: rotate(-90deg);
-        }
-        
-        [data-theme="dark"] .theme-toggle .bi-sun {
-            opacity: 1;
-            transform: rotate(0);
         }
         
         /* تحديثات شريط التنقل للجوال */
@@ -614,11 +618,15 @@
                 height: 200px;
             }
             
-            .floating-btn {
+            .floating-btn, .dark-mode-toggle {
                 width: 50px;
                 height: 50px;
                 bottom: 20px;
                 left: 20px;
+            }
+            
+            .dark-mode-toggle {
+                bottom: 90px;
             }
             
             .navbar-brand span {
@@ -690,43 +698,43 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">الرئيسية</a>
+                        <a class="nav-link active" href="#home">
+                            <i class="bi bi-house-door me-1"></i>الرئيسية
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="firstAidDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            الإسعافات الأولية
+                            <i class="bi bi-heart-pulse me-1"></i>الإسعافات الأولية
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="firstAidDropdown">
-                            <li><a class="dropdown-item" href="#first-aid-kit">علبة الإسعافات</a></li>
-                            <li><a class="dropdown-item" href="#recovery-position">الوضعية الأمنية الجانبية</a></li>
-                            <li><a class="dropdown-item" href="#cpr">الإنعاش القلبي الرئوي</a></li>
-                            <li><a class="dropdown-item" href="#choking">الاختناق</a></li>
-                            <li><a class="dropdown-item" href="#bleeding">الجروح والنزيف</a></li>
-                            <li><a class="dropdown-item" href="#fractures">الكسور</a></li>
-                            <li><a class="dropdown-item" href="#burns">الحروق</a></li>
-                            <li><a class="dropdown-item" href="#health-issues">توعك وحالات طبية</a></li>
-                            <li><a class="dropdown-item" href="#accidents">الحوادث الطارئة</a></li>
+                            <li><a class="dropdown-item" href="#first-aid-kit"><i class="bi bi-bag-plus me-1"></i>علبة الإسعافات</a></li>
+                            <li><a class="dropdown-item" href="#recovery-position"><i class="bi bi-person-check me-1"></i>الوضعية الأمنية الجانبية</a></li>
+                            <li><a class="dropdown-item" href="#cpr"><i class="bi bi-heart me-1"></i>الإنعاش القلبي الرئوي</a></li>
+                            <li><a class="dropdown-item" href="#choking"><i class="bi bi-airplane me-1"></i>الاختناق</a></li>
+                            <li><a class="dropdown-item" href="#bleeding"><i class="bi bi-droplet me-1"></i>الجروح والنزيف</a></li>
+                            <li><a class="dropdown-item" href="#fractures"><i class="bi bi-bone me-1"></i>الكسور</a></li>
+                            <li><a class="dropdown-item" href="#burns"><i class="bi bi-fire me-1"></i>الحروق</a></li>
+                            <li><a class="dropdown-item" href="#health-issues"><i class="bi bi-heartbreak me-1"></i>توعك وحالات طبية</a></li>
+                            <li><a class="dropdown-item" href="#accidents"><i class="bi bi-exclamation-triangle me-1"></i>الحوادث الطارئة</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="safetyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            السلامة
+                            <i class="bi bi-shield-check me-1"></i>السلامة
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="safetyDropdown">
-                            <li><a class="dropdown-item" href="#fire-extinguishers">أنواع طفايات الحريق</a></li>
-                            <li><a class="dropdown-item" href="#evacuation">إجراءات الإجلاء</a></li>
-                            <li><a class="dropdown-item" href="#fire-types">أنواع الحرائق</a></li>
+                            <li><a class="dropdown-item" href="#fire-extinguishers"><i class="bi bi-fire-extinguisher me-1"></i>أنواع طفايات الحريق</a></li>
+                            <li><a class="dropdown-item" href="#evacuation"><i class="bi bi-door-open me-1"></i>إجراءات الإجلاء</a></li>
+                            <li><a class="dropdown-item" href="#fire-types"><i class="bi bi-fire me-1"></i>أنواع الحرائق</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#emergency-contacts">اتصال الطوارئ</a>
+                        <a class="nav-link" href="#emergency-contacts">
+                            <i class="bi bi-telephone me-1"></i>اتصال الطوارئ
+                        </a>
                     </li>
                 </ul>
                 <div class="d-flex mt-3 mt-lg-0">
-                    <button class="btn theme-toggle me-2" id="darkModeToggle">
-                        <i class="bi bi-moon"></i>
-                        <i class="bi bi-sun"></i>
-                    </button>
                     <button class="btn btn-danger me-2" onclick="scrollToSection('emergency-contacts')">
                         <i class="bi bi-telephone"></i> طوارئ
                     </button>
@@ -757,7 +765,7 @@
         </div>
     </section>
 
-    <!-- شريط الأخبار المتحرك - تم التعديل -->
+    <!-- شريط الأخبار المتحرك -->
     <div class="news-ticker">
         <div class="ticker-container">
             <div class="news-ticker-content">
@@ -908,6 +916,17 @@
         </div>
     </div>
 
+    <!-- زر الوضع المظلم الجديد -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="bi bi-moon"></i>
+        <i class="bi bi-sun"></i>
+    </div>
+
+    <!-- زر العودة للأعلى -->
+    <div class="floating-btn" onclick="scrollToTop()">
+        <i class="bi bi-arrow-up"></i>
+    </div>
+
     <!-- المحتويات الرئيسية -->
     <div class="container my-5">
         
@@ -985,7 +1004,7 @@
             </div>
         </section>
 
-        <!-- قسم الوضعية الأمنية الجانبية - تم إصلاح مشكلة الألوان -->
+        <!-- قسم الوضعية الأمنية الجانبية -->
         <section id="recovery-position" class="my-5 pt-4">
             <h2 class="section-title">الوضعية الأمنية الجانبية</h2>
             
@@ -1982,7 +2001,7 @@
                         <div class="card-body text-center py-4">
                             <h3 class="text-danger mb-4"><i class="bi bi-telephone-fill me-2"></i> أرقام الطوارئ في الجزائر</h3>
                             <div class="emergency-numbers">
-                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
                                     <span class="fw-bold">الشرطة</span>
                                     <strong class="text-danger fs-4">17</strong>
                                 </div>
@@ -1990,7 +2009,7 @@
                                     <span class="fw-bold">الدرك الوطني</span>
                                     <strong class="text-danger fs-5">1055</strong>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
                                     <span class="fw-bold">الحماية المدنية (الإسعاف/الإطفاء)</span>
                                     <strong class="text-danger fs-5">14</strong>
                                 </div>
@@ -2074,11 +2093,6 @@
         </div>
     </footer>
 
-    <!-- زر العودة للأعلى -->
-    <div class="floating-btn" onclick="scrollToTop()">
-        <i class="bi bi-arrow-up"></i>
-    </div>
-
     <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -2109,10 +2123,14 @@
         // إظهار/إخفاء زر العودة للأعلى
         window.addEventListener('scroll', function() {
             const floatingBtn = document.querySelector('.floating-btn');
+            const darkModeToggle = document.querySelector('.dark-mode-toggle');
+            
             if (window.pageYOffset > 300) {
                 floatingBtn.style.display = 'flex';
+                darkModeToggle.style.display = 'flex';
             } else {
                 floatingBtn.style.display = 'none';
+                darkModeToggle.style.display = 'none';
             }
         });
         
